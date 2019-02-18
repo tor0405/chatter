@@ -36,4 +36,4 @@ services:
       - ./frontend/public:/srv/app/frontend/public
     links:
       - backend
-    command: npm run start
+    command: yarn start

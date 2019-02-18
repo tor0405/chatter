@@ -5,7 +5,6 @@ WORKDIR /srv/app/backend
 
 
 COPY package.json /srv/app/backend
-COPY package-lock.json /srv/app/backend
 
 RUN npm install
 
