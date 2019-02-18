@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+
+#######################
+#  Backend container  #
+#######################
+  backend:
+    build: ./backend
+    expose:
+      - ${BACKEND_PORT}
+    environment:
+      BACKEND_HOST: ${BACKEND_HOST}
+      BACKEND_PORT: ${BACKEND_PORT}
+    ports:
+      - ${BACKEND_PORT}:${BACKEND_PORT}
+    volumes:
+      - ./backend/src:/srv/app/backend/src
+    command: npm run dev
+
+
+########################
+#  Frontend container  #
+########################
+
+  frontend:
+    build: ./frontend
+    expose:
+      - ${FRONTEND_PORT}
+    environment:
+      - FRONTEND_PORT:${FRONTEND_PORT}
+    ports:
+      - ${FRONTEND_PORT}:${FRONTEND_PORT}
+    volumes:
+      - ./frontend/src:/srv/app/frontend/src
+      - ./frontend/public:/srv/app/frontend/public
+    links:
+      - backend
+    command: npm run start
