@@ -14,6 +14,8 @@ services:
       BACKEND_PORT: ${BACKEND_PORT}
     ports:
       - ${BACKEND_PORT}:${BACKEND_PORT}
+    links:
+      - mongo
     volumes:
       - ./backend/src:/srv/app/backend/src
     command: npm run dev
