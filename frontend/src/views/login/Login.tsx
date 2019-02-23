@@ -6,6 +6,7 @@ interface State {
 }
 
 interface Props {
+
 }
 
 export class Login extends React.Component<Props, State> {
