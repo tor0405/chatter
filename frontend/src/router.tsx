@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import { Route, HashRouter as Router, Switch } from 'react-router-dom';
-import { App } from './app';
+import { App } from './App';
 import { Login } from './views/login/Login';
 
 export const AppRouter: React.FunctionComponent<{}> = () => {
@@ -15,4 +15,4 @@ export const AppRouter: React.FunctionComponent<{}> = () => {
             </div>
         </Router>
     );
-}
+};

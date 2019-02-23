@@ -9,4 +9,4 @@ export const App: React.FunctionComponent<{}> = (props) => {
         </div>
 
     );
-}
+};
