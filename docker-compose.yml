@@ -18,6 +18,14 @@ services:
       - ./backend/src:/srv/app/backend/src
     command: npm run dev
 
+  mongo:
+    container_name: mongo
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27017:27017"
+
 
 ########################
 #  Frontend container  #
