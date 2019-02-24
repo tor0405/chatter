@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './Login.scss'
-import {User} from "./../../Api"
+import {User} from "../../Api"
 
 interface State {
     password: string;

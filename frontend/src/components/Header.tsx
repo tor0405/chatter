@@ -18,7 +18,7 @@ export const Header: React.FunctionComponent<Props> = (props) => {
                     </Link>
                 </section>
                 <section className={"header__right"}>
-                    <Link className="nav__link" to={"/login"}>
+                    <Link className="nav__link" to={"/logout"}>
                         <button className="link__button">
                             Logg ut
                         </button>
