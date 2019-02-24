@@ -65,7 +65,7 @@ export class User extends Api {
         if (token) {
             let jwt: JWT = Api.parseJwtToken(token);
             let current_time: number = Date.now() / 1000;
-            return jwt.exp < current_time;
+            return jwt.exp > current_time;
         } else {
             return false
         }
