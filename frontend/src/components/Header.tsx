@@ -10,16 +10,20 @@ export const Header: React.FunctionComponent<Props> = (props) => {
     function loggedIn() {
         return(
             <nav className="header__nav">
-                <Link className="nav__link" to={"/login"}>
-                    <button className="link__button">
-                        Hjem
-                    </button>
-                </Link>
-                <Link className="nav__link" to={"/register"}>
-                    <button className="link__button">
-                        Logg ut
-                    </button>
-                </Link>
+                <section className={"header__left"}>
+                    <Link className="nav__link" to={"/"}>
+                        <button className="link__button">
+                            Hjem
+                        </button>
+                    </Link>
+                </section>
+                <section className={"header__right"}>
+                    <Link className="nav__link" to={"/login"}>
+                        <button className="link__button">
+                            Logg ut
+                        </button>
+                    </Link>
+                </section>
             </nav>
         )
     }
@@ -27,6 +31,14 @@ export const Header: React.FunctionComponent<Props> = (props) => {
     function loggedOut(){
         return(
             <nav className="header__nav">
+                <section className={"header__left"}>
+                    <Link className="nav__link" to={"/"}>
+                        <button className="link__button">
+                            Hjem
+                        </button>
+                    </Link>
+                </section>
+                <section className={"header__right"}>
                 <Link className="nav__link" to={"/login"}>
                     <button className="link__button">
                         Login
@@ -37,6 +49,7 @@ export const Header: React.FunctionComponent<Props> = (props) => {
                         Register
                     </button>
                 </Link>
+                </section>
             </nav>
         )
     }
