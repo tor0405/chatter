@@ -23,7 +23,7 @@ const options = {
 };
 
 const connectWithRetry = () => {
-    mongoose.connect("mongodb://mongo:27017/db", options).then(()=>{
+    mongoose.connect(process.env.MONGO_URL, options).then(()=>{
         console.log('MongoDB is connected')
     }).catch(err=>{
         console.log('MongoDB connection unsuccessful, retry in 5 seconds')

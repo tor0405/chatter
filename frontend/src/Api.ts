@@ -2,6 +2,7 @@ import {JWT} from "./domain/JWT"
 import * as UserInterfaces from "./domain/UserInterfaces"
 import * as ChatInterfaces from "./domain/ChatInterfaces"
 import Chat from "./views/chat/Chat";
+import io from "socket.io-client"
 
 export class Api {
 
@@ -101,12 +102,11 @@ export class UserApi extends Api {
         }));
     }
 
-    static fetch(userID: string): Promise<UserInterfaces.User|string> {
+    static fetch(userID: string): Promise<UserInterfaces.User> {
         return new Promise(((resolve, reject) => {
             Api.get("/user/", true,userID)
                 .then((response) => (response.json()))
                 .then((res: UserInterfaces.fetchResponseSuccess) => {
-
                     resolve(res.user);
                 })
                 .catch((err: UserInterfaces.fetchResponseError) => {
@@ -121,7 +121,12 @@ export class UserApi extends Api {
 
 export class ChatApi extends Api{
 
-    static getChat(chatID:string):Promise<ChatInterfaces.getChatSuccess|ChatInterfaces.getChatError>{
+    static initChat(chatID:string){
+        const socket = io('http://localhost:3000');
+    }
+
+
+    static getChat(chatID:string):Promise<ChatInterfaces.getChatSuccess>{
         return new Promise(((resolve, reject) => {
             Api.get("/chat/", true, chatID)
                 .then((response) => (response.json()))
@@ -134,12 +139,12 @@ export class ChatApi extends Api{
         }));
     }
 
-    static sendMessage(chatID:string, message:string):Promise<string>{
+    static sendMessage(chatID:string, message:string):Promise<ChatInterfaces.sendMessageSuccess>{
         return new Promise(((resolve, reject) => {
             Api.post("/chat/"+chatID, true, {message})
                 .then((response) => (response.json()))
                 .then((res: ChatInterfaces.sendMessageSuccess) => {
-                    resolve("Melding sendt!");
+                    resolve(res);
                 })
                 .catch((err: ChatInterfaces.sendMessageError) => {
                     reject(err.msg);

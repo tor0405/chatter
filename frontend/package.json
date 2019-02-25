@@ -9,6 +9,8 @@
     "@types/react-dom": "^16.8.2",
     "@types/react-router": "^4.4.4",
     "@types/react-router-dom": "^4.3.1",
+    "@types/socket.io-client": "^1.4.32",
+    "http-proxy-middleware": "^0.19.1",
     "node-sass": "^4.11.0",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
@@ -17,6 +19,7 @@
     "react-scripts": "2.1.5",
     "redux": "^4.0.1",
     "sass-loader": "^7.1.0",
+    "socket.io-client": "^2.2.0",
     "typescript": "^3.3.3"
   },
   "scripts": {
@@ -34,5 +37,4 @@
     "not ie <= 11",
     "not op_mini all"
   ]
-
 }

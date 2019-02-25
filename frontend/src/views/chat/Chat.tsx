@@ -18,9 +18,21 @@ interface message{
 }
 
 export default class Chat extends React.Component<Props, State>{
+    constructor(props:Props){
+        super(props);
+        this.state={
+            messages:[]
+        }
+    }
 
     componentDidMount(): void {
         ChatApi.getChat(this.props.match.params.id)
+            .then((res)=>{
+              this.setState({messages:res.messages})
+            })
+            .catch(err=>{
+                console.log(err)
+            })
     }
 
     render(){

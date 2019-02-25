@@ -15,6 +15,10 @@ interface chatMessage{
 //##Responses
 
 //Fetching chat
+export interface getChatResponse{
+    success?:getChatSuccess
+    error?:getChatError
+}
 export interface getChatSuccess{
     messages:chatMessage[],
     id:string
