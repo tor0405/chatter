@@ -8,17 +8,17 @@ services:
   backend:
     build: ./backend
     expose:
-      - ${BACKEND_PORT}
+      - 8000
     environment:
-      BACKEND_HOST: ${BACKEND_HOST}
-      BACKEND_PORT: ${BACKEND_PORT}
+      BACKEND_HOST: "localhost:8000"
+      BACKEND_PORT: "8000"
     ports:
-      - ${BACKEND_PORT}:${BACKEND_PORT}
+      - 8000:8000
     links:
       - mongo
     volumes:
       - ./backend/src:/srv/app/backend/src
-    command: npm run dev
+    command: npm start
 
   mongo:
     container_name: mongo
@@ -36,14 +36,15 @@ services:
   frontend:
     build: ./frontend
     expose:
-      - ${FRONTEND_PORT}
+      - 80
     environment:
-      - FRONTEND_PORT:${FRONTEND_PORT}
+      - FRONTEND_PORT:80
     ports:
-      - ${FRONTEND_PORT}:${FRONTEND_PORT}
+      - 80:80
     volumes:
       - ./frontend/src:/srv/app/frontend/src
+      - ./frontend/build:/srv/app/frontend/build
       - ./frontend/public:/srv/app/frontend/public
     links:
       - backend
-    command: yarn start
+    command: [nginx, '-g', 'daemon off;']

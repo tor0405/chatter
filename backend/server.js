@@ -30,7 +30,7 @@ const connectWithRetry = () => {
     mongoose.connect(process.env.MONGO_URL, options).then(()=>{
         console.log('MongoDB is connected')
     }).catch(err=>{
-        console.log('MongoDB connection unsuccessful, retry in 5 seconds')
+        console.log('MongoDB connection unsuccessful, retry in 5 seconds');
         setTimeout(connectWithRetry, 5000)
     })
 };
