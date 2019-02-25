@@ -7,14 +7,13 @@ interface Props {
     callback:Function
 }
 
-export class ChatInput extends React.Component<Props, State> {
+export default class ChatInput extends React.Component<Props, State> {
     constructor(props:Props){
         super(props);
         this.state={
             currentMsg:""
         }
     }
-
     render(){
         return (
             <section className={"chat__new-message"}>

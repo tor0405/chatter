@@ -4,10 +4,11 @@ import {ChatSocket} from "../../Sockets";
 import {UserApi} from "../../Api";
 import {RouteComponentProps} from 'react-router-dom';
 import ChatMessage from "./ChatMessage";
+import ChatInput from "./ChatInput"
 
 interface State {
     messages:message[],
-    socket:ChatSocket|null,
+    socket:ChatSocket|null
 }
 
 interface Props extends RouteComponentProps<{ id: string; }>{
@@ -26,7 +27,7 @@ export default class Chat extends React.Component<Props, State>{
         super(props);
         this.state={
             messages:[],
-            socket:null
+            socket:new ChatSocket();
         }
     }
 
@@ -43,6 +44,10 @@ export default class Chat extends React.Component<Props, State>{
         }
     }
 
+    public sendMessage(msg:string){
+        this.state.socket.send()
+    }
+
     public renderMessages(){
         return this.state.messages.map(msg=>{
             return(
@@ -50,6 +55,8 @@ export default class Chat extends React.Component<Props, State>{
             )
         })
     }
+
+
 
 
     render(){
@@ -63,6 +70,8 @@ export default class Chat extends React.Component<Props, State>{
                         {this.renderMessages()}
                     </div>
                 </section>
+                <ChatInput callback={this.sendMessage}/>
+
             </div>
         )
     }
