@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6228d6c8-4026-4b30-907a-dfb788c9404d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Sockets.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Sockets.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/setupProxy.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/setupProxy.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/views/chat/Chat.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/chat/Chat.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/views/chat/ChatInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/chat/ChatInput.tsx" afterDir="false" />
     </list>
@@ -22,11 +19,11 @@
     <splitter split-orientation="vertical" split-proportion="0.54301834">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/frontend/src/views/chat/Chat.tsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="88">
-                  <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+                <state relative-caret-position="110">
+                  <caret line="81" column="47" lean-forward="true" selection-start-line="81" selection-start-column="47" selection-end-line="81" selection-end-column="47" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
                   </folding>
@@ -37,8 +34,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/frontend/src/views/chat/ChatInput.tsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="30">
-                  <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+                <state relative-caret-position="125">
+                  <caret line="28" column="53" lean-forward="true" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
                   </folding>
@@ -47,19 +44,10 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/frontend/src/setupProxy.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="90">
-                  <caret line="6" column="2" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/frontend/src/Sockets.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="125">
-                  <caret line="35" column="43" lean-forward="true" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
+                <state relative-caret-position="137">
+                  <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
                 </state>
               </provider>
             </entry>
@@ -67,8 +55,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/frontend/src/views/chat/ChatInput.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="83">
-                  <caret line="42" column="17" lean-forward="true" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
+                <state relative-caret-position="203">
+                  <caret line="50" column="1" lean-forward="true" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
                 </state>
               </provider>
             </entry>
@@ -76,7 +64,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/frontend/src/views/chat/ChatMessage.tsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="113">
+                <state relative-caret-position="120">
                   <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
@@ -90,18 +78,6 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="390">
                   <caret line="26" column="3" lean-forward="true" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/frontend/src/Api.ts">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1997">
-                  <caret line="152" column="50" selection-start-line="152" selection-start-column="50" selection-end-line="152" selection-end-column="50" />
-                  <folding>
-                    <element signature="e#0#32#0" expanded="true" />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -285,11 +261,11 @@
         <option value="$PROJECT_DIR$/frontend/src/views/chat/ChatMessage.scss" />
         <option value="$PROJECT_DIR$/frontend/src/views/chat/Chat.scss" />
         <option value="$PROJECT_DIR$/frontend/src/views/chat/ChatInput.scss" />
-        <option value="$PROJECT_DIR$/frontend/src/views/chat/ChatInput.tsx" />
         <option value="$PROJECT_DIR$/frontend/src/Api.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/views/chat/Chat.tsx" />
         <option value="$PROJECT_DIR$/frontend/src/setupProxy.js" />
         <option value="$PROJECT_DIR$/frontend/src/Sockets.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/views/chat/ChatInput.tsx" />
+        <option value="$PROJECT_DIR$/frontend/src/views/chat/Chat.tsx" />
       </list>
     </option>
   </component>
@@ -300,7 +276,7 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="1089" />
@@ -482,7 +458,7 @@
       <workItem from="1550660573665" duration="759000" />
       <workItem from="1550924689829" duration="564000" />
       <workItem from="1551006923052" duration="9000000" />
-      <workItem from="1551087727357" duration="23118000" />
+      <workItem from="1551087727357" duration="23410000" />
     </task>
     <task id="LOCAL-00001" summary="Create-react-app &amp; node">
       <created>1550488926042</created>
@@ -701,18 +677,25 @@
       <option name="project" value="LOCAL" />
       <updated>1551110262930</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Fixed issue with socket.io continously polling">
+      <created>1551111207195</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1551111207195</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66746000" />
+    <option name="totallyTimeSpent" value="67038000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="1089" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="1089" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49929675" visible="true" weight="0.17784877" />
-      <window_info active="true" id="Structure" order="1" sideWeight="0.5007032" side_tool="true" visible="true" weight="0.17784877" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49929675" visible="true" weight="0.26979" />
+      <window_info id="Structure" order="1" sideWeight="0.5007032" side_tool="true" visible="true" weight="0.26979" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -761,7 +744,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Setup with docker" />
     <MESSAGE value="Tons of stupid fixes" />
     <MESSAGE value="Added a common sass" />
     <MESSAGE value="Added auth+registration, and some setup going forward" />
@@ -786,7 +768,8 @@
     <MESSAGE value="added info callback to sockets" />
     <MESSAGE value="added info callback to chatsocket" />
     <MESSAGE value="added info to state in chatComponent" />
-    <option name="LAST_COMMIT_MESSAGE" value="added info to state in chatComponent" />
+    <MESSAGE value="Fixed issue with socket.io continously polling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed issue with socket.io continously polling" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/tempa/src/App.js" />
@@ -1044,23 +1027,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/views/chat/ChatMessage.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/views/chat/ChatMessage.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="3" lean-forward="true" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/views/chat/Chat.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
@@ -1078,9 +1044,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/views/chat/ChatInput.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="50" column="1" lean-forward="true" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/Api.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1997">
+        <state relative-caret-position="2234">
           <caret line="152" column="50" selection-start-line="152" selection-start-column="50" selection-end-line="152" selection-end-column="50" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
@@ -1088,20 +1061,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/views/chat/Chat.tsx">
+    <entry file="file://$PROJECT_DIR$/frontend/src/views/chat/ChatMessage.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+        <state relative-caret-position="390">
+          <caret line="26" column="3" lean-forward="true" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/views/chat/ChatMessage.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/views/chat/ChatInput.scss">
+    <entry file="file://$PROJECT_DIR$/frontend/src/Sockets.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="42" column="17" lean-forward="true" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
+        <state relative-caret-position="137">
+          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -1114,18 +1094,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/views/chat/ChatInput.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+        <state relative-caret-position="125">
+          <caret line="28" column="53" lean-forward="true" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/Sockets.ts">
+    <entry file="file://$PROJECT_DIR$/frontend/src/views/chat/Chat.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="35" column="43" lean-forward="true" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
+        <state relative-caret-position="110">
+          <caret line="81" column="47" lean-forward="true" selection-start-line="81" selection-start-column="47" selection-end-line="81" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

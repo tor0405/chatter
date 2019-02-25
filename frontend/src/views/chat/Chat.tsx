@@ -82,7 +82,7 @@ export default class Chat extends React.Component<Props, State>{
                         {this.renderMessages()}
                     </div>
                 </section>
-                <ChatInput callback={this.sendMessage}/>
+                <ChatInput callback={this.sendMessage.bind(this)}/>
             </div>
         )
     }

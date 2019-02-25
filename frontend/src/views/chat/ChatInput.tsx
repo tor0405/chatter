@@ -16,6 +16,14 @@ export default class ChatInput extends React.Component<Props, State> {
         }
     }
 
+    private submit(e:any){
+        e.preventDefault();
+        this.props.callback(this.state.currentMsg);
+        this.setState({
+            currentMsg:""
+        })
+    }
+
     render(){
         return (
             <section className={"chat__new-message"}>
@@ -26,7 +34,7 @@ export default class ChatInput extends React.Component<Props, State> {
                                   this.setState({currentMsg:e.target.value})}}
                               className={"chat__new-message__input"}
                               placeholder={"Skriv ny melding..."} />
-                    <button className={"chat__new-message-submit"}>Send</button>
+                    <button onClick={(e)=>{this.submit(e)}} className={"chat__new-message-submit"}>Send</button>
                 </form>
             </section>
         );
