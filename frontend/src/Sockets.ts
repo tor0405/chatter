@@ -36,8 +36,7 @@ export class ChatSocket {
         this.infoReciever(JSON.parse(info))
     }
 
-
-    public send(msg:string){
+    public sendMsg(msg:string){
         this.socket.send(msg)
     }
 

@@ -9,7 +9,9 @@ import ChatInput from "./ChatInput"
 interface State {
     messages:message[],
     socket:ChatSocket,
-    name:string
+    info:{
+        name:string
+    }
 }
 
 interface Props extends RouteComponentProps<{ id: string; }>{
@@ -29,12 +31,18 @@ export default class Chat extends React.Component<Props, State>{
         this.state={
             messages:[],
             socket:new ChatSocket(),
-            name:"Chat med"
+            info:{
+                name:""
+            }
         }
     }
 
     componentDidMount(): void {
-        let socket = new ChatSocket(this.props.match.params.id, this.messageRecieved.bind(this));
+        let socket = new ChatSocket(
+            this.props.match.params.id,
+            this.messageRecieved.bind(this),
+            this.setState
+            );
         this.setState({socket})
     }
 
@@ -47,7 +55,7 @@ export default class Chat extends React.Component<Props, State>{
     }
 
     public sendMessage(msg:string){
-        this.state.socket.send(msg)
+        this.state.socket.sendMsg(msg)
     }
 
     public renderMessages(){
@@ -65,7 +73,7 @@ export default class Chat extends React.Component<Props, State>{
         return(
             <div className={"chat__container"}>
                 <section className={"chat__header"}>
-                        <span className={"chat__name"}>Tor Berre</span>
+                        <span className={"chat__name"}>{this.state.info.name}</span>
                 </section>
                 <section className={"chat__body"}>
                     <div className={"chat__content"}>

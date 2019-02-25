@@ -19,11 +19,11 @@
     <splitter split-orientation="vertical" split-proportion="0.54301834">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/frontend/src/views/chat/Chat.tsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="203">
-                  <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+                <state relative-caret-position="256">
+                  <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
                   <folding>
                     <element signature="e#0#31#0" expanded="true" />
                   </folding>
@@ -82,11 +82,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/frontend/src/Sockets.ts">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="128">
-                  <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+                <state relative-caret-position="151">
+                  <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
                 </state>
               </provider>
             </entry>
@@ -202,12 +202,14 @@
       <find>color</find>
       <find>User</find>
       <find>font-</find>
-      <find>io(</find>
       <find>parse</find>
+      <find>io(</find>
+      <find>caller</find>
     </findStrings>
     <replaceStrings>
       <replace />
       <replace>UserActionTypes</replace>
+      <replace>msgReciever</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -270,8 +272,8 @@
         <option value="$PROJECT_DIR$/frontend/src/views/chat/Chat.scss" />
         <option value="$PROJECT_DIR$/frontend/src/views/chat/ChatInput.scss" />
         <option value="$PROJECT_DIR$/frontend/src/views/chat/ChatInput.tsx" />
-        <option value="$PROJECT_DIR$/frontend/src/views/chat/Chat.tsx" />
         <option value="$PROJECT_DIR$/frontend/src/Sockets.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/views/chat/Chat.tsx" />
       </list>
     </option>
   </component>
@@ -464,7 +466,7 @@
       <workItem from="1550660573665" duration="759000" />
       <workItem from="1550924689829" duration="564000" />
       <workItem from="1551006923052" duration="9000000" />
-      <workItem from="1551087727357" duration="21867000" />
+      <workItem from="1551087727357" duration="22159000" />
     </task>
     <task id="LOCAL-00001" summary="Create-react-app &amp; node">
       <created>1550488926042</created>
@@ -662,11 +664,25 @@
       <option name="project" value="LOCAL" />
       <updated>1551109613452</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="added param for fetching chat info in sockets class">
+      <created>1551109930009</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1551109930010</updated>
+    </task>
+    <task id="LOCAL-00030" summary="added info callback to chatsocket">
+      <created>1551110071972</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1551110071972</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65495000" />
+    <option name="totallyTimeSpent" value="65787000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="1089" extended-state="0" />
@@ -744,7 +760,10 @@
     <MESSAGE value="Made chatinput update state on input" />
     <MESSAGE value="Added ChatSocket default constructor" />
     <MESSAGE value="Added callback for chat input" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added callback for chat input" />
+    <MESSAGE value="added param for fetching chat info in sockets class" />
+    <MESSAGE value="added info callback to sockets" />
+    <MESSAGE value="added info callback to chatsocket" />
+    <option name="LAST_COMMIT_MESSAGE" value="added info callback to chatsocket" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/tempa/src/App.js" />
@@ -1067,20 +1086,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/views/chat/Chat.tsx">
+    <entry file="file://$PROJECT_DIR$/frontend/src/Sockets.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="151">
+          <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/Sockets.ts">
+    <entry file="file://$PROJECT_DIR$/frontend/src/views/chat/Chat.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+        <state relative-caret-position="256">
+          <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
