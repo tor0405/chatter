@@ -2,7 +2,7 @@ import {JWT} from "./domain/JWT"
 import * as UserInterfaces from "./domain/UserInterfaces"
 import * as ChatInterfaces from "./domain/ChatInterfaces"
 import Chat from "./views/chat/Chat";
-import io from "socket.io-client"
+import io from 'socket.io-client';
 
 export class Api {
 
@@ -78,7 +78,10 @@ export class UserApi extends Api {
         return new Promise(((resolve, reject) => {
             Api.post("/user/login",false, {username, password})
                 .then((response) => (response.json()))
-                .then((res: UserInterfaces.loginResponseSuccess) => {
+                .then((res) => {
+                    if(res.error){
+                        throw(res.error)
+                    }
                     localStorage.setItem("token", res.token);
                     resolve("Logget inn");
                 })
@@ -122,7 +125,9 @@ export class UserApi extends Api {
 export class ChatApi extends Api{
 
     static initChat(chatID:string){
-        const socket = io('http://localhost:3000');
+
+        const socket = io('http://localhost:3000/', {path: '/websocket/socket.io',transports:['websocket']});
+        socket.connect();
     }
 
 

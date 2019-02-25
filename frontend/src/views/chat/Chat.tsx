@@ -33,7 +33,10 @@ export default class Chat extends React.Component<Props, State>{
             .catch(err=>{
                 console.log(err)
             })
+
+        ChatApi.initChat("1");
     }
+
 
     render(){
         return(
