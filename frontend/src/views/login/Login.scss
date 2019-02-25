@@ -52,18 +52,18 @@
   width:150px;
   outline: none;
   margin-top:10px;
-  background-color: blue;
+  background-color: #378ae2;
   border-radius: 5px;
   color:white;
   font-weight: 100;
   letter-spacing: 0.2px;
   border: none;
-  font-size: 1em;
+  font-size: 1.1em;
   height:40px;
   transition: all 0.15s ease-in-out;
 
   &:hover{
-    background-color: #2122ff;
+    background-color: #3795ed;
   }
 }
 
