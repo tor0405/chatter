@@ -5,7 +5,7 @@ interface chatLog{
 }
 
 interface chatMessage{
-    text:string,
+    msg:string,
     name:string,
     id:string
 }

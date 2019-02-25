@@ -74,6 +74,16 @@ export class UserApi extends Api {
         }
     }
 
+    static getUserId():string{
+        let token: string | null = localStorage.getItem("token");
+        if (token) {
+            let jwt: JWT = Api.parseJwtToken(token);
+            return jwt.id
+        } else {
+            return ""
+        }
+    }
+
     static login(username: string, password: string): Promise<string> {
         return new Promise(((resolve, reject) => {
             Api.post("/user/login",false, {username, password})
@@ -125,7 +135,6 @@ export class UserApi extends Api {
 export class ChatApi extends Api{
 
     static initChat(chatID:string){
-
         const socket = io('http://localhost:3000/', {path: '/websocket/socket.io',transports:['websocket']});
         socket.connect();
     }

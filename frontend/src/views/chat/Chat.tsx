@@ -1,10 +1,13 @@
 import * as React from 'react';
 import './Chat.scss'
-import {UserApi, ChatApi} from "../../Api"
-import {RouteProps, RouteComponentProps, match} from 'react-router-dom';
+import {ChatSocket} from "../../Sockets";
+import {UserApi} from "../../Api";
+import {RouteComponentProps} from 'react-router-dom';
+import ChatMessage from "./ChatMessage";
 
 interface State {
-    messages:message[]
+    messages:message[],
+    socket:ChatSocket|null,
 }
 
 interface Props extends RouteComponentProps<{ id: string; }>{
@@ -13,7 +16,8 @@ interface Props extends RouteComponentProps<{ id: string; }>{
 
 interface message{
     text:string,
-    id:string,
+    senderId:string,
+    msgId:string;
     name:string,
 }
 
@@ -21,20 +25,30 @@ export default class Chat extends React.Component<Props, State>{
     constructor(props:Props){
         super(props);
         this.state={
-            messages:[]
+            messages:[],
+            socket:null
         }
     }
 
     componentDidMount(): void {
-        ChatApi.getChat(this.props.match.params.id)
-            .then((res)=>{
-              this.setState({messages:res.messages})
-            })
-            .catch(err=>{
-                console.log(err)
-            })
+        let socket = new ChatSocket(this.props.match.params.id, this.messageRecieved.bind(this));
+        this.setState({socket})
+    }
 
-        ChatApi.initChat("1");
+    private messageRecieved(msg:message): void{
+        if(!this.state.messages.find(m=>m.msgId==msg.msgId)){
+            this.setState({
+                messages:[...this.state.messages, msg]
+            });
+        }
+    }
+
+    public renderMessages(){
+        return this.state.messages.map(msg=>{
+            return(
+                <ChatMessage name={msg.name} key={msg.senderId} text={msg.text} self={msg.senderId==UserApi.getUserId()}/>
+            )
+        })
     }
 
 
@@ -45,15 +59,9 @@ export default class Chat extends React.Component<Props, State>{
                         <span className={"chat__name"}>Tor Berre</span>
                 </section>
                 <section className={"chat__body"}>
-                        <div className={"chat__content"}>
-
-                        </div>
-                </section>
-                <section className={"chat__new-message"}>
-                    <form className={"chat__new-message__form"}>
-                        <textarea className={"chat__new-message__input"} placeholder={"Skriv ny melding..."} />
-                        <button className={"chat__new-message-submit"}>Send</button>
-                    </form>
+                    <div className={"chat__content"}>
+                        {this.renderMessages()}
+                    </div>
                 </section>
             </div>
         )
