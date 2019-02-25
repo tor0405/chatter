@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './Login.scss'
-import {User} from "./../../Api"
+import {UserApi} from "../../Api"
 
 interface State {
     password: string;
@@ -21,7 +21,7 @@ export class Login extends React.Component<Props, State> {
 
     public submit(e:React.FormEvent<HTMLButtonElement>): void{
         e.preventDefault();
-        User.login(this.state.username, this.state.password);
+        UserApi.login(this.state.username, this.state.password);
     }
 
     public render() {
