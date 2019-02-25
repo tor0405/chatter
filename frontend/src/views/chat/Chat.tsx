@@ -23,13 +23,13 @@ export default class Chat extends React.Component {
                             </fieldset>
                             <fieldset className={"chat__message"}>
                                 <legend className={"chat__message__username"}>Tor</legend>
-                                <span className={"chat__message__content"}>Baaaare bra.</span>
+                                <span className={"chat__message__content"}>Baaadklsakdlsaklødaklasl økdklsdløsakdløsakldøsaklødkløakdløsalø ds ad sa d sa ddksal ds ad s sd  ds ds dare bra.</span>
                             </fieldset>
                         </div>
                 </section>
                 <section className={"chat__new-message"}>
                     <form className={"chat__new-message__form"}>
-                        <textarea className={"chat__new-message__input"} placeholder={"Skriv ny melding..."}></textarea>
+                        <textarea className={"chat__new-message__input"} placeholder={"Skriv ny melding..."} />
                         <button className={"chat__new-message-submit"}>Send</button>
                     </form>
                 </section>
