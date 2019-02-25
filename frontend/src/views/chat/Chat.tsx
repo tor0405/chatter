@@ -8,7 +8,7 @@ import ChatInput from "./ChatInput"
 
 interface State {
     messages:message[],
-    socket:ChatSocket|null
+    socket:ChatSocket
 }
 
 interface Props extends RouteComponentProps<{ id: string; }>{
@@ -27,7 +27,7 @@ export default class Chat extends React.Component<Props, State>{
         super(props);
         this.state={
             messages:[],
-            socket:new ChatSocket();
+            socket:new ChatSocket()
         }
     }
 
@@ -45,7 +45,7 @@ export default class Chat extends React.Component<Props, State>{
     }
 
     public sendMessage(msg:string){
-        this.state.socket.send()
+        this.state.socket.send(msg)
     }
 
     public renderMessages(){
