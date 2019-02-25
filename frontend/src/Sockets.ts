@@ -8,11 +8,11 @@ The socket-classes will not stateless like the api classes, as websockets is not
 export class ChatSocket {
     private msgReciever:Function;
     private infoReciever:Function;
-    private socket:SocketIOClient.Socket = io();
+    private socket:SocketIOClient.Socket|null = null;
     private name:string="";
 
     constructor(chatID:string="", msgReciever:Function=()=>{}, infoReciever:Function=()=>{}){
-        this.socket = io('http://localhost:3000/', {path: '/websocket/socket.io',transports:['websocket']});
+        this.socket = io('ws://localhost:3000', {path: '/websocket/socket.io',transports:['websocket']});
         this.socket.send(JSON.stringify({"chatID":chatID}));
         this.msgReciever=msgReciever;                               //message from another user
         this.infoReciever=infoReciever;                             // info from the server
@@ -37,7 +37,7 @@ export class ChatSocket {
     }
 
     public sendMsg(msg:string){
-        this.socket.send(msg)
+        (<SocketIOClient.Socket>this.socket).send(msg)
     }
 
 }

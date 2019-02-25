@@ -8,7 +8,7 @@ import ChatInput from "./ChatInput"
 
 interface State {
     messages:message[],
-    socket:ChatSocket,
+    socket:ChatSocket|null,
     info:{
         name:string
     }
@@ -30,7 +30,7 @@ export default class Chat extends React.Component<Props, State>{
         super(props);
         this.state={
             messages:[],
-            socket:new ChatSocket(),
+            socket:null,
             info:{
                 name:""
             }
@@ -41,9 +41,12 @@ export default class Chat extends React.Component<Props, State>{
         let socket = new ChatSocket(
             this.props.match.params.id,
             this.messageRecieved.bind(this),
-            this.setState
-            );
+            this.getChatInfo);
         this.setState({socket})
+    }
+
+    private getChatInfo(info:object){
+        this.setState(info)
     }
 
     private messageRecieved(msg:message): void{
@@ -55,7 +58,7 @@ export default class Chat extends React.Component<Props, State>{
     }
 
     public sendMessage(msg:string){
-        this.state.socket.sendMsg(msg)
+        (this.state.socket as ChatSocket).sendMsg(msg)
     }
 
     public renderMessages(){
@@ -65,7 +68,6 @@ export default class Chat extends React.Component<Props, State>{
             )
         })
     }
-
 
 
 
@@ -81,7 +83,6 @@ export default class Chat extends React.Component<Props, State>{
                     </div>
                 </section>
                 <ChatInput callback={this.sendMessage}/>
-
             </div>
         )
     }

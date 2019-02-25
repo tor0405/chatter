@@ -1,4 +1,5 @@
 import * as React from 'react';
+import "./ChatInput.scss"
 
 interface State{
     currentMsg:string;
@@ -14,6 +15,7 @@ export default class ChatInput extends React.Component<Props, State> {
             currentMsg:""
         }
     }
+
     render(){
         return (
             <section className={"chat__new-message"}>

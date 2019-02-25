@@ -134,10 +134,6 @@ export class UserApi extends Api {
 
 export class ChatApi extends Api{
 
-    static initChat(chatID:string){
-        const socket = io('http://localhost:3000/', {path: '/websocket/socket.io',transports:['websocket']});
-        socket.connect();
-    }
 
 
     static getChat(chatID:string):Promise<ChatInterfaces.getChatSuccess>{
