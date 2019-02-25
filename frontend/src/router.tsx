@@ -12,7 +12,7 @@ export const AppRouter: React.FunctionComponent<{}> = () => {
                 <Route component={App} />
                 <Switch>
                     <Route exact path="/login" component={Login} />
-                    <Route exact path="/chat" component={Chat} />
+                    <Route exact path="/chat/:id" component={Chat} />
                 </Switch>
             </div>
         </Router>

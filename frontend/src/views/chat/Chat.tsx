@@ -1,9 +1,27 @@
 import * as React from 'react';
 import './Chat.scss'
-import {User} from "../../Api"
+import {UserApi, ChatApi} from "../../Api"
+import {RouteProps, RouteComponentProps, match} from 'react-router-dom';
 
+interface State {
+    messages:message[]
+}
 
-export default class Chat extends React.Component {
+interface Props extends RouteComponentProps<{ id: string; }>{
+
+}
+
+interface message{
+    text:string,
+    id:string,
+    name:string,
+}
+
+export default class Chat extends React.Component<Props, State>{
+
+    componentDidMount(): void {
+        ChatApi.getChat(this.props.match.params.id)
+    }
 
     render(){
         return(
@@ -13,18 +31,7 @@ export default class Chat extends React.Component {
                 </section>
                 <section className={"chat__body"}>
                         <div className={"chat__content"}>
-                            <fieldset className={"chat__message"}>
-                                <legend className={"chat__message__username"}>Tor</legend>
-                                <span className={"chat__message__content"}>Hallo, hvordan går det?</span>
-                            </fieldset>
-                            <fieldset className={"chat__message chat__message--self"}>
-                                <legend className={"chat__message__username"}>Meg</legend>
-                                <span className={"chat__message__content"}>Bare bra, hva med deg?</span>
-                            </fieldset>
-                            <fieldset className={"chat__message"}>
-                                <legend className={"chat__message__username"}>Tor</legend>
-                                <span className={"chat__message__content"}>Baaadklsakdlsaklødaklasl økdklsdløsakdløsakldøsaklødkløakdløsalø ds ad sa d sa ddksal ds ad s sd  ds ds dare bra.</span>
-                            </fieldset>
+
                         </div>
                 </section>
                 <section className={"chat__new-message"}>

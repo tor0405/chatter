@@ -1,0 +1,27 @@
+.chat__message {
+  width: fit-content;
+  padding: 11px 22px 22px 22px;
+  border-radius: 5px;
+  margin: 30px 0 15px 0;
+  border:1px solid #e6e6e6;
+  max-width:200px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.chat__message__content{
+  height: 100%;
+}
+
+.chat__message__username {
+  color: rgba(30,136,229,0.5)
+}
+
+.chat__message--self {
+  margin: auto 0 auto auto;
+
+  .chat__message__username {
+    color: rgba(0,134,125,0.5);
+  }
+}

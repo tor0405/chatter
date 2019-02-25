@@ -1,5 +1,7 @@
 import {JWT} from "./domain/JWT"
 import * as UserInterfaces from "./domain/UserInterfaces"
+import * as ChatInterfaces from "./domain/ChatInterfaces"
+import Chat from "./views/chat/Chat";
 
 export class Api {
 
@@ -58,7 +60,7 @@ export class Api {
 }
 
 
-export class User extends Api {
+export class UserApi extends Api {
 
     static isLoggedIn(): boolean {
         let token: string | null = localStorage.getItem("token");
@@ -108,6 +110,38 @@ export class User extends Api {
                     resolve(res.user);
                 })
                 .catch((err: UserInterfaces.fetchResponseError) => {
+                    reject(err.msg);
+                })
+        }));
+    }
+}
+
+
+
+
+export class ChatApi extends Api{
+
+    static getChat(chatID:string):Promise<ChatInterfaces.getChatSuccess|ChatInterfaces.getChatError>{
+        return new Promise(((resolve, reject) => {
+            Api.get("/chat/", true, chatID)
+                .then((response) => (response.json()))
+                .then((res: ChatInterfaces.getChatSuccess) => {
+                    resolve(res);
+                })
+                .catch((err: ChatInterfaces.getChatError) => {
+                    reject(err.msg);
+                })
+        }));
+    }
+
+    static sendMessage(chatID:string, message:string):Promise<string>{
+        return new Promise(((resolve, reject) => {
+            Api.post("/chat/"+chatID, true, {message})
+                .then((response) => (response.json()))
+                .then((res: ChatInterfaces.sendMessageSuccess) => {
+                    resolve("Melding sendt!");
+                })
+                .catch((err: ChatInterfaces.sendMessageError) => {
                     reject(err.msg);
                 })
         }));
