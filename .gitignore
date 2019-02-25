@@ -3,5 +3,7 @@ backend/node_modules/
 backend/package-lock.json
 
 frontend/node_modules
-.idea
+.idea/workspace.xml
 dock
+backend/db/
+data/
