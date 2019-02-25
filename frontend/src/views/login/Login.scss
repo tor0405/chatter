@@ -52,18 +52,18 @@
   width:150px;
   outline: none;
   margin-top:10px;
-  background-color: rgba(30,136,229,0.7);
+  background-color: blue;
   border-radius: 5px;
   color:white;
   font-weight: 100;
   letter-spacing: 0.2px;
   border: none;
-  font-size: 0.9em;
+  font-size: 1em;
   height:40px;
   transition: all 0.15s ease-in-out;
 
   &:hover{
-    background-color: rgba(30,136,229,0.9);
+    background-color: #2122ff;
   }
 }
 
