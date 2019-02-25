@@ -1,5 +1,8 @@
 import {JWT} from "./domain/JWT"
 import * as UserInterfaces from "./domain/UserInterfaces"
+import * as ChatInterfaces from "./domain/ChatInterfaces"
+import Chat from "./views/chat/Chat";
+import io from 'socket.io-client';
 
 export class Api {
 
@@ -58,7 +61,7 @@ export class Api {
 }
 
 
-export class User extends Api {
+export class UserApi extends Api {
 
     static isLoggedIn(): boolean {
         let token: string | null = localStorage.getItem("token");
@@ -71,11 +74,24 @@ export class User extends Api {
         }
     }
 
+    static getUserId():string{
+        let token: string | null = localStorage.getItem("token");
+        if (token) {
+            let jwt: JWT = Api.parseJwtToken(token);
+            return jwt.id
+        } else {
+            return ""
+        }
+    }
+
     static login(username: string, password: string): Promise<string> {
         return new Promise(((resolve, reject) => {
             Api.post("/user/login",false, {username, password})
                 .then((response) => (response.json()))
-                .then((res: UserInterfaces.loginResponseSuccess) => {
+                .then((res) => {
+                    if(res.error){
+                        throw(res.error)
+                    }
                     localStorage.setItem("token", res.token);
                     resolve("Logget inn");
                 })
@@ -99,15 +115,48 @@ export class User extends Api {
         }));
     }
 
-    static fetch(userID: string): Promise<UserInterfaces.User|string> {
+    static fetch(userID: string): Promise<UserInterfaces.User> {
         return new Promise(((resolve, reject) => {
             Api.get("/user/", true,userID)
                 .then((response) => (response.json()))
                 .then((res: UserInterfaces.fetchResponseSuccess) => {
-
                     resolve(res.user);
                 })
                 .catch((err: UserInterfaces.fetchResponseError) => {
+                    reject(err.msg);
+                })
+        }));
+    }
+}
+
+
+
+
+export class ChatApi extends Api{
+
+
+
+    static getChat(chatID:string):Promise<ChatInterfaces.getChatSuccess>{
+        return new Promise(((resolve, reject) => {
+            Api.get("/chat/", true, chatID)
+                .then((response) => (response.json()))
+                .then((res: ChatInterfaces.getChatSuccess) => {
+                    resolve(res);
+                })
+                .catch((err: ChatInterfaces.getChatError) => {
+                    reject(err.msg);
+                })
+        }));
+    }
+
+    static sendMessage(chatID:string, message:string):Promise<ChatInterfaces.sendMessageSuccess>{
+        return new Promise(((resolve, reject) => {
+            Api.post("/chat/"+chatID, true, {message})
+                .then((response) => (response.json()))
+                .then((res: ChatInterfaces.sendMessageSuccess) => {
+                    resolve(res);
+                })
+                .catch((err: ChatInterfaces.sendMessageError) => {
                     reject(err.msg);
                 })
         }));

@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Header } from './components/Header';
-import {User} from "./Api"
+import {UserApi} from "./Api"
 
 export const App: React.FunctionComponent<{}> = (props) => {
     return (
         <div>
-            <Header loggedIn={User.isLoggedIn()} />
+            <Header loggedIn={UserApi.isLoggedIn()} />
             {props.children}
         </div>
 

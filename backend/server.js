@@ -9,6 +9,10 @@ let User = require('./src/api/models/userModel');
 const mongoose = require('mongoose');
 let routes=require("./src/api/routes");
 var bodyParser = require('body-parser');
+const app = express();
+let http = require('http').Server(app);
+//let io = require('socket.io')(http);
+let chat = require("./src/socket/socket")(http);
 
 
 // DB
@@ -23,7 +27,7 @@ const options = {
 };
 
 const connectWithRetry = () => {
-    mongoose.connect("mongodb://mongo:27017/db", options).then(()=>{
+    mongoose.connect(process.env.MONGO_URL, options).then(()=>{
         console.log('MongoDB is connected')
     }).catch(err=>{
         console.log('MongoDB connection unsuccessful, retry in 5 seconds')
@@ -34,13 +38,11 @@ const connectWithRetry = () => {
 connectWithRetry();
 
 // App
-const app = express();
 let router = express.Router();
 app.use(bodyParser.json());
 
 // Routes
-
 app.use("/api", routes);
 
-app.listen(PORT, HOST);
+http.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);

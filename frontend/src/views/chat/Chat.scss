@@ -1,0 +1,32 @@
+.chat__container {
+  margin: 0 auto;
+  height: 100%;
+  width:70%;
+  padding: 20px;
+}
+
+.chat__header {
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 600px;
+  font-size: 2em;
+  color: black;
+  margin-bottom: 12px;
+}
+
+.chat__body {
+  background-color: white;
+  border-radius: 5px;
+  max-width: 600px;
+  margin: 0 auto;
+  height: 50vh;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  color: black;
+}
+
+.chat__content {
+  padding: 0 20px 0 20px;
+  height: 100%;
+  overflow-y: scroll;
+}
