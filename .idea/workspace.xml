@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6228d6c8-4026-4b30-907a-dfb788c9404d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/Sockets.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/views/chat/ChatInput.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/views/chat/ChatInput.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/socket/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/socket/chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/socket/socket.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/socket/socket.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/domain/ChatInterfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/domain/ChatInterfaces.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/chat/Chat.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/chat/Chat.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/chat/Chat.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/chat/Chat.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/chat/ChatMessage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/chat/ChatMessage.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/chat/ChatMessage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/chat/ChatMessage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/views/chat/ChatInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/chat/ChatInput.tsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -43,8 +33,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/frontend/src/views/chat/ChatInput.tsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+                <state relative-caret-position="105">
+                  <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
                 </state>
               </provider>
             </entry>
@@ -134,8 +124,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/frontend/src/views/chat/Chat.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="158">
-                  <caret line="32" selection-start-line="32" selection-end-line="32" />
+                <state relative-caret-position="-7">
+                  <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="22" selection-end-column="15" />
                 </state>
               </provider>
             </entry>
@@ -474,7 +464,7 @@
       <workItem from="1550660573665" duration="759000" />
       <workItem from="1550924689829" duration="564000" />
       <workItem from="1551006923052" duration="9000000" />
-      <workItem from="1551087727357" duration="19736000" />
+      <workItem from="1551087727357" duration="19968000" />
     </task>
     <task id="LOCAL-00001" summary="Create-react-app &amp; node">
       <created>1550488926042</created>
@@ -630,11 +620,18 @@
       <option name="project" value="LOCAL" />
       <updated>1551103873969</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Split ChatInput out of Chat component">
+      <created>1551107952986</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1551107952986</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63364000" />
+    <option name="totallyTimeSpent" value="63596000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1090" extended-state="6" />
@@ -706,7 +703,8 @@
     <MESSAGE value="Separated Message out from chat, created chatApi, and added chat-id routing functionality" />
     <MESSAGE value="Fixed proxy issue" />
     <MESSAGE value="Added socket-basis" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added socket-basis" />
+    <MESSAGE value="Split ChatInput out of Chat component" />
+    <option name="LAST_COMMIT_MESSAGE" value="Split ChatInput out of Chat component" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/tempa/src/App.js" />
@@ -1022,13 +1020,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/views/chat/Chat.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/views/chat/Chat.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
@@ -1039,10 +1030,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/views/chat/Chat.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="22" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/views/chat/ChatInput.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        <state relative-caret-position="105">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
         </state>
       </provider>
     </entry>

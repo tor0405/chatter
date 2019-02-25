@@ -1,6 +1,11 @@
 import * as React from 'react';
 
-inte
+interface State{
+    currentMsg:string;
+}
+interface Props {
+    callback:Function
+}
 
 export const Header: React.FunctionComponent<{}> = () => {
     return (
