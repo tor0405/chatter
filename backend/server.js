@@ -42,7 +42,7 @@ let router = express.Router();
 app.use(bodyParser.json());
 
 // Routes
-app.use("/api", routes);
+app.use("/", routes);
 
 http.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
