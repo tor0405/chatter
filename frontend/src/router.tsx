@@ -6,12 +6,24 @@ import { Login } from './views/login/Login';
 import {UserApi} from "./Api";
 import Chat from "./views/chat/Chat"
 import Landing from "./views/landing/Landing"
+
 import {Register} from "./views/register/Register";
+import {Dashboard} from "./views/dashboard/Dashboard";
+import {User} from "./domain/UserInterfaces";
 
 const ProtectedRoute = (isAllowed:any, { ...props }) =>
         isAllowed==true
         ? <Route {...props}/>
         : <Redirect to="/login"/>;
+
+const Index = (isLoggedIn:any, props:Props) =>
+    isLoggedIn==true
+        ? <Dashboard {...props} />
+        : <Landing {...props} />;
+
+interface Props {
+    history:any
+}
 
 export const AppRouter: React.FunctionComponent<{}> = () => {
     return (
@@ -19,13 +31,28 @@ export const AppRouter: React.FunctionComponent<{}> = () => {
             <div>
                 <Route component={App} />
                 <Switch>
-                    <Route exact path="/" component={Landing} />
+                    <Route
+                        exact path={"/"}
+                        render={(props:Props) =>
+                            UserApi.isLoggedIn() ? (
+                                <Dashboard {...props} />
+                            ) : (
+                                <Landing />
+                            )
+                        }
+                    />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/register" component={Register} />
-                    <ProtectedRoute
-                        isAllowed={UserApi.isLoggedIn()}
-                        exact
-                        path="/chat/:id" component={Chat}/>
+                    <Route
+                        exact path={"/chat/:id"}
+                        render={props =>
+                            UserApi.isLoggedIn() ? (
+                                <Chat {...props}/>
+                            ) : (
+                                <Redirect to="/login"/>
+                            )
+                        }
+                    />
                 </Switch>
             </div>
         </Router>

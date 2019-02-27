@@ -70,7 +70,7 @@ export class UserApi extends Api {
         if (token) {
             let jwt: JWT = Api.parseJwtToken(token);
             let current_time: number = Date.now() / 1000;
-            if(jwt.exp>current_time){
+            if(jwt){
                 (<any>window).isLoggedIn=true;
                 return true
             }else{
@@ -159,28 +159,14 @@ export class UserApi extends Api {
 export class ChatApi extends Api{
 
 
-
-    static getChat(chatID:string):Promise<ChatInterfaces.getChatSuccess>{
+    static getUserChats():Promise<ChatInterfaces.getUserChatsSuccess>{
         return new Promise(((resolve, reject) => {
-            Api.get("/chat/", true, chatID)
+            Api.get("/chat/", true, "")
                 .then((response) => (response.json()))
-                .then((res: ChatInterfaces.getChatSuccess) => {
+                .then((res: ChatInterfaces.getUserChatsSuccess) => {
                     resolve(res);
                 })
                 .catch((err: ChatInterfaces.getChatError) => {
-                    reject(err.msg);
-                })
-        }));
-    }
-
-    static sendMessage(chatID:string, message:string):Promise<ChatInterfaces.sendMessageSuccess>{
-        return new Promise(((resolve, reject) => {
-            Api.post("/chat/"+chatID, true, {message})
-                .then((response) => (response.json()))
-                .then((res: ChatInterfaces.sendMessageSuccess) => {
-                    resolve(res);
-                })
-                .catch((err: ChatInterfaces.sendMessageError) => {
                     reject(err.msg);
                 })
         }));

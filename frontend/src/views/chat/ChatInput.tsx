@@ -28,8 +28,8 @@ export default class ChatInput extends React.Component<Props, State> {
         return (
             <section className={"chat__new-message"}>
                 <form className={"chat__new-message__form"}>
-                    <textarea value={this.state.currentMsg}
-                              onChange={(e:React.FormEvent<HTMLTextAreaElement>)=>{
+                    <input value={this.state.currentMsg}
+                              onChange={(e:React.FormEvent<HTMLInputElement>)=>{
                                   // @ts-ignore en faktisk feil i TS gjør at jeg må bruke denne
                                   this.setState({currentMsg:e.target.value})}}
                               className={"chat__new-message__input"}
