@@ -2,8 +2,12 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt-nodejs');
 let chatModel = new mongoose.Schema(
 		{
-				participants: Array,
-				messages:Array
+				participants: [{id:String}],
+				messages:[{
+					from:String,
+					content:String,
+					Date:Date
+				}]
 		}
 );
 
