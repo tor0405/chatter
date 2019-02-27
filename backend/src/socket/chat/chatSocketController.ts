@@ -53,7 +53,7 @@ function getChat(chatId:string,token:any, callback:Function){
 function createChat(creatorId:string, public_id:string,callback:Function){
     let new_chat=new Chat({public_id:public_id,participants:{_id:creatorId}, messages:[]});
     new_chat.save((err: any, res:any)=>{
-        console.log(res)
+
         if(err){
             callback({error:err})
         }else{

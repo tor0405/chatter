@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.scss'
+import {UserApi} from "../Api";
 
 interface Props {
     loggedIn:boolean
@@ -19,7 +20,7 @@ export const Header: React.FunctionComponent<Props> = (props) => {
                     </Link>
                 </section>
                 <section className={"header__right"}>
-                    <Link className="nav__link" to={"/logout"}>
+                    <Link className="nav__link" onClick={UserApi.logOut} to={"/logout"}>
                         <button className="link__button">
                             Logg ut
                         </button>

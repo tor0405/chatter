@@ -26,8 +26,15 @@ export default {
         onMessage(callback:Function){
             socket.on("chat-message", callback);
         },
-        sendMessage(msg:any){ //TODO:make interface
-          socket.emit("chat-message", msg)
+        onChatSetup(callback:Function){
+            socket.on("chat-setup", callback);
+        },
+        sendMessage(text:any){ //TODO:make interface
+            let msg={
+                content:text,
+                date:Date.now()
+            }
+          socket.emit("chat-message", JSON.stringify(msg))
         },
         clear(){
             socket.off("chat-info");

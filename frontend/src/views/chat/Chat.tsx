@@ -22,8 +22,9 @@ interface Props extends RouteComponentProps<{ id: string; }> {
 interface message {
     msg: string,
     senderId: string,
-    msgId: string;
-    name: string,
+    senderName:string,
+    date: string;
+    content: string,
 }
 
 export default class Chat extends React.Component<Props, State> {
@@ -45,17 +46,28 @@ export default class Chat extends React.Component<Props, State> {
                 socket.chat.connect(this.props.match.params.id);
                 socket.chat.onMessage(this.recieveMessage.bind(this));
                 socket.chat.onInfo(this.recieveInfo.bind(this))
+                socket.chat.onChatSetup(this.setupChat.bind(this))
             }
         })
     }
 
-    private recieveInfo(info: object) {
-        //this.setState(info)
+    private setupChat(chatInfo:any){
+        let info=JSON.parse(chatInfo);
+        if(info.chat.messages){
+            this.setState({
+                messages:info.chat.messages
+            });
+        }
+    }
+
+    private recieveInfo(infoIn: any) {
+
     }
 
     private recieveMessage(msgIn: string): void {
         let msg = JSON.parse(msgIn);
-        if (!this.state.messages.find(m => m.msgId == msg.msgId)) {
+        console.log(msg)
+        if (!this.state.messages.find(m => m.date == msg.date)) {
             this.setState({
                 messages: [...this.state.messages, msg]
             });
@@ -69,7 +81,7 @@ export default class Chat extends React.Component<Props, State> {
     public renderMessages() {
         return this.state.messages.map(msg => {
             return (
-                <ChatMessage name={msg.name} key={msg.msgId} text={msg.msg} self={msg.senderId == UserApi.getUserId()}/>
+                <ChatMessage name={msg.senderName} key={msg.date} text={msg.content} self={msg.senderId == UserApi.getUserId()}/>
             )
         })
     }

@@ -84,6 +84,10 @@ export class UserApi extends Api {
         }
     }
 
+    static logOut():void{
+        localStorage.removeItem("token");
+    }
+
     static getUserToken():string{
         let token: string | null = localStorage.getItem("token");
         if (token) {
@@ -117,7 +121,6 @@ export class UserApi extends Api {
                 .then((response) => (response.json()))
                 .then((res: UserInterfaces.registrationResponseSuccess) => {
                     resolve("Registrering vellykket");
-                    console.log(res)
                 })
                 .catch((err: UserInterfaces.registrationResponseError) => {
                     reject(err.msg);

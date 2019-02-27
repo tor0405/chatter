@@ -5,9 +5,10 @@ let chatModel = new mongoose.Schema(
 				public_id:String,
 				participants: [{_id:String}],
 				messages:[{
-					from:String,
+					senderId:String,
 					content:String,
-					Date:Date
+					Date:Date,
+					senderName:String
 				}]
 		}
 );
