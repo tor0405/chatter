@@ -19,7 +19,7 @@ const ProtectedRoute = (isAllowed:any, { ...props }) =>
 const Index = (isLoggedIn:any, props:Props) =>
     isLoggedIn==true
         ? <Dashboard {...props} />
-        : <Landing {...props} />;
+        : <Landing />;
 
 interface Props {
     history:any
