@@ -6,16 +6,16 @@ var jwt = require('jsonwebtoken');
 
 
 
-interface message{
+interface message {
     from:string;
     content:string;
     Date:Date;
 }
 
 
-export function sendMessage(chatId:string, message:message, callback:Function){
+function sendMessage(chatId:string, message:message, callback:Function){
     if(message){
-        Chat.findOneAndUpdate({_id:chatId},{$push:{messages:message}}, (err, doc)=>{
+        Chat.findOneAndUpdate({_id:chatId},{$push:{messages:message}}, (err:any, doc:any)=>{
             if(err){
                 callback({error:err})
             }else{
@@ -28,8 +28,8 @@ export function sendMessage(chatId:string, message:message, callback:Function){
 }
 
 
-export function getChat(chatId:string, callback:Function){
-    Chat.findOne({_id:chatId}, (err, res)=>{
+function getChat(chatId:string, callback:Function){
+    Chat.findOne({_id:chatId}, (err:any, res:any)=>{
         if(err){
             callback({error:err})
         }else{
@@ -38,9 +38,9 @@ export function getChat(chatId:string, callback:Function){
     })
 }
 
-export function createChat(creatorId:string, callback:Function){
+function createChat(creatorId:string, callback:Function){
     let new_chat=new Chat({participants:{_id:creatorId}, messages:[]});
-    new_chat.save((err, res)=>{
+    new_chat.save((err: any, res:any)=>{
         if(err){
             callback({error:err})
         }else{
@@ -49,3 +49,8 @@ export function createChat(creatorId:string, callback:Function){
     })
 }
 
+export default {
+    sendMessage,
+    getChat,
+    createChat
+}
