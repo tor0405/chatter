@@ -5,6 +5,7 @@ import { App } from './App';
 import { Login } from './views/login/Login';
 import {UserApi} from "./Api";
 import Chat from "./views/chat/Chat"
+import Landing from "./views/landing/Landing"
 
 const ProtectedRoute = (isAllowed:any, { ...props }) =>
         isAllowed==true
@@ -17,6 +18,7 @@ export const AppRouter: React.FunctionComponent<{}> = () => {
             <div>
                 <Route component={App} />
                 <Switch>
+                    <Route exact path="/" component={Landing} />
                     <Route exact path="/login" component={Login} />
                     <ProtectedRoute
                         isAllowed={UserApi.isLoggedIn()}
