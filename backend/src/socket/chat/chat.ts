@@ -9,19 +9,18 @@
 
 import chatSocketController from "./chatSocketController";
 
+
 function connectionCallback(io:any, msg:any){
     if(msg.error){
-        io.emit("error", "Not working..")
+        io.emit("chat-error", "Not working..")
     }else{
-        io.emit("info", "connected");
-        io.emit("info", JSON.stringify({chat:msg.chat}))
+        io.emit("chat-info", "connected");
+        io.emit("chat-info", JSON.stringify({chat:msg.chat}))
     }
 }
 
-module.exports = (io:any)=>{
-
-    io.on("connect", (msg:any)=>{
-        chatSocketController.getChat(msg, (msg:any)=>connectionCallback(io,msg))
+module.exports = (io:any, decoded:any)=>{
+    io.on("chat-connect", (msg:any)=>{
+        chatSocketController.getChat(msg, decoded,(msg:any)=>connectionCallback(io,msg))
     })
-
 };

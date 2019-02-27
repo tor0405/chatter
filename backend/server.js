@@ -13,7 +13,7 @@ var bodyParser = require('body-parser');
 const app = express();
 let http = require('http').Server(app);
 //let io = require('socket.io')(http);
-let chat = require("./src/socket/socket")(http);
+let socket = require("./src/socket/socket")(http);
 
 
 // DB
@@ -43,7 +43,7 @@ let router = express.Router();
 app.use(bodyParser.json());
 
 // Routes
-app.use("/", routes);
+app.use("/api", routes);
 
 http.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
