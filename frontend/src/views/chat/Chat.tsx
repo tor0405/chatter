@@ -5,6 +5,7 @@ import {RouteComponentProps} from 'react-router-dom';
 import ChatMessage from "./ChatMessage";
 import ChatInput from "./ChatInput"
 import socket from "./../../socket"
+import {User} from "../../domain/UserInterfaces";
 
 interface State {
     messages: message[],
@@ -38,22 +39,21 @@ export default class Chat extends React.Component<Props, State> {
     }
 
     componentDidMount(): void {
-        socket.emit("connect", JSON.stringify(
-            {"chatID": this.props.match.params.id, "token": UserApi.getUserToken()
-            }));
-
-        this.setState({socket});
-        socket.on("message", this.recieveMessage.bind(this));
-        socket.on("info", this.recieveInfo.bind(this))
+        socket.user.login(UserApi.getUserToken());
+        socket.user.onLoginResponse((status:any)=>{
+            if(status=="true"){
+                socket.chat.connect(this.props.match.params.id);
+                socket.chat.onMessage(this.recieveMessage.bind(this));
+                socket.chat.onInfo(this.recieveInfo.bind(this))
+            }
+        })
     }
 
     private recieveInfo(info: object) {
-        this.setState(info)
+        //this.setState(info)
     }
 
     private recieveMessage(msgIn: string): void {
-        console.log(msgIn)
-        console.info(this.state)
         let msg = JSON.parse(msgIn);
         if (!this.state.messages.find(m => m.msgId == msg.msgId)) {
             this.setState({
@@ -63,7 +63,7 @@ export default class Chat extends React.Component<Props, State> {
     }
 
     public sendMessage(msg: string) {
-        (this.state.socket as SocketIOClient.Socket).send(msg)
+        socket.chat.sendMessage(msg)
     }
 
     public renderMessages() {
