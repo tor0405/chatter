@@ -7,14 +7,21 @@
   });*/
 
 
+import * as chatSocketController from 'chatSocketController';
 
+function connectionCallback(io, msg){
+    if(msg.error){
+        io.emit("error", "Not working..")
+    }else{
+        io.emit("info", "connected");
+        io.emit("info", JSON.stringify({chat:msg.chat}))
+    }
+}
 
 module.exports = (io)=>{
 
-    io.emit("info", "connected");
-
     io.on("connect", (msg)=>{
-
+        chatSocketController.getChat(msg, connectionCallback(io))
     })
 
 };
