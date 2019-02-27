@@ -12,7 +12,7 @@ interface State {
 
 export class App extends React.Component<Props, State> {
     constructor(props:Props){
-        super(props)
+        super(props);
         this.state={
             isLoggedIn:false
         }
@@ -26,7 +26,7 @@ export class App extends React.Component<Props, State> {
     }
 
     componentWillUpdate(): void {
-        console.log(this.state.isLoggedIn)
+        console.log(this.state.isLoggedIn);
         if(this.state.isLoggedIn!=(window as any).isLoggedIn){
             this.setState({
                 isLoggedIn:(window as any).isLoggedIn
