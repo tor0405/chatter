@@ -6,13 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "MONGO_URL='mongodb://mongo:27017/db' node server.js",
-    "dev": "MONGO_URL='mongodb://localhost:27017/db' nodemon --exec babel-node server.js & mongod"
+    "dev": "MONGO_URL='mongodb://localhost:27017/db' nodemon --watch 'src' -e ts,js --exec 'babel-node & ts-node' server.js & mongod"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.3.3",
     "@babel/node": "^7.2.2",
+    "@types/mongodb": "^3.1.19",
+    "@types/mongoose": "^5.3.20",
+    "@types/node": "^11.9.5",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
@@ -21,6 +24,8 @@
     "mongoose": "^5.4.15",
     "nodemon": "^1.18.10",
     "socket.io": "^2.2.0",
+    "ts-node": "^8.0.2",
+    "typescript": "^3.3.3333",
     "validator": "^10.11.0"
   },
   "devDependencies": {

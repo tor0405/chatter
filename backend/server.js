@@ -5,14 +5,15 @@ const express = require('express');
 // Constants
 const PORT = process.env.BACKEND_PORT||8000;
 const HOST = '0.0.0.0';
-let User = require('./src/api/models/userModel');
+let User = require('./src/models/userModel');
+let Chat = require('./src/models/chatModel.ts');
 const mongoose = require('mongoose');
 let routes=require("./src/api/routes");
 var bodyParser = require('body-parser');
 const app = express();
 let http = require('http').Server(app);
 //let io = require('socket.io')(http);
-let chat = require("./src/socket/socket")(http);
+let socket = require("./src/socket/socket")(http);
 
 
 // DB
@@ -42,7 +43,7 @@ let router = express.Router();
 app.use(bodyParser.json());
 
 // Routes
-app.use("/", routes);
+app.use("/api", routes);
 
 http.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);

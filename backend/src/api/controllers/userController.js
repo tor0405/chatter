@@ -7,8 +7,6 @@ var jwt = require('jsonwebtoken');
 
 
 exports.register = function (req, res) {
-    console.log(req.body);
-
     if (req.body.password != null && req.body.username != null) {
         let new_user = new User(req.body);
         User.findOne({username: req.body.username})
@@ -47,9 +45,9 @@ exports.login = function (req, res) {
                         var u = {
                             username: user.username,
                             id: user._id,
-                            userGroup: user.userGroup
+                            fullName:user.fullName
                         };
-                        let token = jwt.sign(u, 'Password123', {
+                        let token = jwt.sign(u, 'Password123', { //TODO: add to env
                             expiresIn: 60 * 60 * 24
                         });
                         res.json(

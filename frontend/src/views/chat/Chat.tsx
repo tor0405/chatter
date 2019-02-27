@@ -4,81 +4,94 @@ import {UserApi} from "../../Api";
 import {RouteComponentProps} from 'react-router-dom';
 import ChatMessage from "./ChatMessage";
 import ChatInput from "./ChatInput"
-import io from "socket.io-client";
+import socket from "./../../socket"
+import {User} from "../../domain/UserInterfaces";
 
 interface State {
-    messages:message[],
-    socket:SocketIOClient.Socket|null,
-    info:{
-        name:string
+    messages: message[],
+    socket: SocketIOClient.Socket | null,
+    info: {
+        name: string
     }
 }
 
-interface Props extends RouteComponentProps<{ id: string; }>{
+interface Props extends RouteComponentProps<{ id: string; }> {
 
 }
 
-interface message{
-    msg:string,
-    senderId:string,
-    msgId:string;
-    name:string,
+interface message {
+    msg: string,
+    senderId: string,
+    senderName:string,
+    date: string;
+    content: string,
 }
 
-export default class Chat extends React.Component<Props, State>{
-    constructor(props:Props){
+export default class Chat extends React.Component<Props, State> {
+    constructor(props: Props) {
         super(props);
-        this.state={
-            messages:[],
-            socket:null,
-            info:{
-                name:""
+        this.state = {
+            messages: [],
+            socket: null,
+            info: {
+                name: ""
             }
         }
     }
 
     componentDidMount(): void {
-        let socket=io('ws://localhost:80', {path: '/socket/socket.io',transports:['websocket']});
-        socket.emit("login", JSON.stringify({"chatID":this.props.match.params.id}));
-        this.setState({socket});
-        socket.on("message", this.recieveMessage.bind(this));
-        socket.on("info", this.recieveInfo.bind(this))
+        socket.user.login(UserApi.getUserToken());
+        socket.user.onLoginResponse((status:any)=>{
+            if(status=="true"){
+                socket.chat.connect(this.props.match.params.id);
+                socket.chat.onMessage(this.recieveMessage.bind(this));
+                socket.chat.onInfo(this.recieveInfo.bind(this))
+                socket.chat.onChatSetup(this.setupChat.bind(this))
+            }
+        })
     }
 
-    private recieveInfo(info:object){
-        this.setState(info)
-    }
-
-    private recieveMessage(msgIn:string): void{
-        console.log(msgIn)
-        console.info(this.state)
-        let msg = JSON.parse(msgIn);
-        if(!this.state.messages.find(m=>m.msgId==msg.msgId)){
+    private setupChat(chatInfo:any){
+        let info=JSON.parse(chatInfo);
+        if(info.chat.messages){
             this.setState({
-                messages:[...this.state.messages, msg]
+                messages:info.chat.messages
             });
         }
     }
 
-    public sendMessage(msg:string){
-        (this.state.socket as SocketIOClient.Socket).send(msg)
+    private recieveInfo(infoIn: any) {
+
     }
 
-    public renderMessages(){
-        return this.state.messages.map(msg=>{
-            return(
-                <ChatMessage name={msg.name} key={msg.msgId} text={msg.msg} self={msg.senderId==UserApi.getUserId()}/>
+    private recieveMessage(msgIn: string): void {
+        let msg = JSON.parse(msgIn);
+        console.log(msg)
+        if (!this.state.messages.find(m => m.date == msg.date)) {
+            this.setState({
+                messages: [...this.state.messages, msg]
+            });
+        }
+    }
+
+    public sendMessage(msg: string) {
+        socket.chat.sendMessage(msg)
+    }
+
+    public renderMessages() {
+        return this.state.messages.map(msg => {
+            return (
+                <ChatMessage name={msg.senderName} key={msg.date} text={msg.content} self={msg.senderId == UserApi.getUserId()}/>
             )
         })
     }
 
 
-
-    render(){
-        return(
+    render() {
+        return (
             <div className={"chat__container"}>
                 <section className={"chat__header"}>
-                        <span className={"chat__name"}>{this.state.info.name}</span>
+                    <span className={"chat__name"}>{this.state.info.name}</span>
                 </section>
                 <section className={"chat__body"}>
                     <div className={"chat__content"}>

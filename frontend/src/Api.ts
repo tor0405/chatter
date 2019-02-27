@@ -84,6 +84,20 @@ export class UserApi extends Api {
         }
     }
 
+    static logOut():void{
+        localStorage.removeItem("token");
+    }
+
+    static getUserToken():string{
+        let token: string | null = localStorage.getItem("token");
+        if (token) {
+            return token
+        } else {
+            return ""
+        }
+    }
+
+
     static login(username: string, password: string): Promise<string> {
         return new Promise(((resolve, reject) => {
             Api.post("/user/login",false, {username, password})
@@ -107,7 +121,6 @@ export class UserApi extends Api {
                 .then((response) => (response.json()))
                 .then((res: UserInterfaces.registrationResponseSuccess) => {
                     resolve("Registrering vellykket");
-                    console.log(res)
                 })
                 .catch((err: UserInterfaces.registrationResponseError) => {
                     reject(err.msg);
@@ -127,6 +140,8 @@ export class UserApi extends Api {
                 })
         }));
     }
+
+
 }
 
 
