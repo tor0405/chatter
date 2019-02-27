@@ -22,8 +22,10 @@ export class Login extends React.Component<Props, State> {
 
     public submit(e:React.FormEvent<HTMLButtonElement>): void{
         e.preventDefault();
-        UserApi.login(this.state.username, this.state.password).then(
-            this.props.history.push("/")
+        UserApi.login(this.state.username, this.state.password).then(e=>{
+                this.props.history.push("/")
+        }
+
         );
     }
 
@@ -40,7 +42,7 @@ export class Login extends React.Component<Props, State> {
                                this.setState({username:e.target.value})}}
                            className="login__input"
                     />
-                    <input type="text" placeholder="Skriv passord"
+                    <input type="password" placeholder="Skriv passord"
                            value={this.state.password}
                            onChange={(e:React.FormEvent<HTMLInputElement>)=>{
                                // @ts-ignore en faktisk feil i TS gjør at jeg må bruke denne

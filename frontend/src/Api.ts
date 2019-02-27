@@ -65,6 +65,7 @@ export class Api {
 export class UserApi extends Api {
 
     static isLoggedIn(): boolean {
+        if((<any>window).isLoggedIn==true) return true;
         let token: string | null = localStorage.getItem("token");
         if (token) {
             let jwt: JWT = Api.parseJwtToken(token);
@@ -113,8 +114,8 @@ export class UserApi extends Api {
                     if(res.error){
                         throw(res.error)
                     }
-                    localStorage.setItem("token", res.token);
                     (<any>window).isLoggedIn=true;
+                    localStorage.setItem("token", res.token);
                     resolve("Logget inn");
                 })
                 .catch((err: UserInterfaces.loginResponseError) => {
