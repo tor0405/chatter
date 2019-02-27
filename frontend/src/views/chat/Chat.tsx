@@ -27,6 +27,7 @@ interface message {
     content: string,
 }
 
+//TODO:autoscroll when new msg
 export default class Chat extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
@@ -81,7 +82,7 @@ export default class Chat extends React.Component<Props, State> {
     public renderMessages() {
         return this.state.messages.map(msg => {
             return (
-                <ChatMessage name={msg.senderName} key={msg.date} text={msg.content} self={msg.senderId == UserApi.getUserId()}/>
+                <ChatMessage name={msg.senderName} date={msg.date} key={msg.date} text={msg.content} self={msg.senderId == UserApi.getUserId()}/>
             )
         })
     }

@@ -25,7 +25,7 @@ export class App extends React.Component<Props, State> {
         }
     }
 
-    componentWillUpdate(): void {
+    componentDidUpdate(): void {
         console.log(this.state.isLoggedIn);
         if(this.state.isLoggedIn!=(window as any).isLoggedIn){
             this.setState({
