@@ -8,9 +8,7 @@ interface Props {
 }
 interface State {
     isLoggedIn:boolean
-}
-
-export class App extends React.Component<Props, State> {
+}export class App extends React.Component<Props, State> {
     constructor(props:Props){
         super(props);
         this.state={
