@@ -4,7 +4,12 @@ var mongoose = require('mongoose'),
 var jwt = require('jsonwebtoken');
 
 
-exports.sendMessage = function (chatId, message, callback) {
+
+
+
+
+
+export function sendMessage(chatId, message, callback){
     if(message){
         Chat.findOneAndUpdate({id:chatId},{$push:{messages:message}}, (err, doc)=>{
             if(err){
@@ -17,3 +22,4 @@ exports.sendMessage = function (chatId, message, callback) {
 
     }
 };
+
