@@ -2,7 +2,7 @@
 
 let socket = require('socket.io');
 
-let chat = require("./chat/chat");
+let chat = require("./chat/chat.ts");
 let jwt =  require("jsonwebtoken");
 
 module.exports = (app)=>{

@@ -4,7 +4,7 @@ RUN mkdir -p /src/app/frontend
 WORKDIR /srv/app/frontend
 
 
-COPY package.json yarn.lock /srv/app/frontend/
+COPY package.json /srv/app/frontend/
 
 RUN yarn
 COPY . /srv/app/frontend
