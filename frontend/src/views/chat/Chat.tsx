@@ -38,7 +38,7 @@ export default class Chat extends React.Component<Props, State>{
     }
 
     componentDidMount(): void {
-        let socket=io('ws://localhost:3000', {path: '/websocket/socket.io',transports:['websocket']});
+        let socket=io('ws://localhost:80', {path: '/socket/socket.io',transports:['websocket']});
         socket.emit("login", JSON.stringify({"chatID":this.props.match.params.id}));
         this.setState({socket});
         socket.on("message", this.recieveMessage.bind(this));

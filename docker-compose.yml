@@ -6,7 +6,9 @@ services:
 #  Backend container  #
 #######################
   backend:
-    build: ./backend
+    build:
+      dockerfile: Dockerfile
+      context: ./backend
     expose:
       - 8000
     environment:
