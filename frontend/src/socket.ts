@@ -1,6 +1,6 @@
 import io from "socket.io-client";
 
-let socket = io('ws://localhost:3000', {
+let socket = io('ws://localhost/', { //TODO: setup env
         path: '/socket/socket.io', transports: ['websocket'],
     },
 );
