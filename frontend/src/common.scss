@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300');
 
+
+$primary:#621edd;
+$secondary: #6e20ff;
+
+
 html,body {
   background-color: #f3f3f3;
   font-family: Roboto;
   font-weight: 100;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   color:white;
   margin:0;
 }

@@ -1,3 +1,5 @@
+@import "./../../common";
+
 
 .login__container {
   margin:0 auto;
@@ -52,7 +54,7 @@
   width:150px;
   outline: none;
   margin-top:10px;
-  background-color: #378ae2;
+  background-color: $primary;
   border-radius: 5px;
   color:white;
   font-weight: 100;
@@ -63,7 +65,7 @@
   transition: all 0.15s ease-in-out;
 
   &:hover{
-    background-color: #2122ff;
+    background-color: $secondary;
   }
 }
 
