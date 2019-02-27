@@ -13,6 +13,7 @@
   "dependencies": {
     "@babel/core": "^7.3.3",
     "@babel/node": "^7.2.2",
+    "@types/node": "^11.9.5",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
