@@ -8,6 +8,7 @@ interface State {
 }
 
 interface Props {
+    history:any
 }
 
 export class Login extends React.Component<Props, State> {
@@ -21,7 +22,9 @@ export class Login extends React.Component<Props, State> {
 
     public submit(e:React.FormEvent<HTMLButtonElement>): void{
         e.preventDefault();
-        UserApi.login(this.state.username, this.state.password);
+        UserApi.login(this.state.username, this.state.password).then(
+            this.props.history.push("/")
+        );
     }
 
     public render() {
