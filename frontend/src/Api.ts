@@ -84,6 +84,16 @@ export class UserApi extends Api {
         }
     }
 
+    static getUserToken():string{
+        let token: string | null = localStorage.getItem("token");
+        if (token) {
+            return token
+        } else {
+            return ""
+        }
+    }
+
+
     static login(username: string, password: string): Promise<string> {
         return new Promise(((resolve, reject) => {
             Api.post("/user/login",false, {username, password})
@@ -127,6 +137,8 @@ export class UserApi extends Api {
                 })
         }));
     }
+
+
 }
 
 
