@@ -13,9 +13,8 @@ export const Header: React.FunctionComponent<Props> = (props) => {
             <nav className="header__nav">
                 <section className={"header__left"}>
                     <Link className="nav__link" to={"/"}>
-
-                        <button className="link__button">
-                            Hjem
+                        <button className="link__logo">
+                            Chatter
                         </button>
                     </Link>
                 </section>

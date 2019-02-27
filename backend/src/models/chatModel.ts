@@ -9,7 +9,10 @@ let chatModel = new mongoose.Schema(
 					content:String,
 					Date:Date,
 					senderName:String
-				}]
+				}],
+				invite_only:Boolean,
+				open:Boolean,
+				secret:String
 		}
 );
 

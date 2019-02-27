@@ -4,6 +4,7 @@ import * as ChatInterfaces from "./domain/ChatInterfaces"
 import Chat from "./views/chat/Chat";
 import io from 'socket.io-client';
 
+
 export class Api {
 
     static post(url: string,jwt:boolean, data: object) {
@@ -68,7 +69,12 @@ export class UserApi extends Api {
         if (token) {
             let jwt: JWT = Api.parseJwtToken(token);
             let current_time: number = Date.now() / 1000;
-            return jwt.exp > current_time;
+            if(jwt.exp>current_time){
+                (<any>window).isLoggedIn=true;
+                return true
+            }else{
+                return false
+            }
         } else {
             return false
         }
@@ -86,6 +92,7 @@ export class UserApi extends Api {
 
     static logOut():void{
         localStorage.removeItem("token");
+        (<any>window).isLoggedIn=false;
     }
 
     static getUserToken():string{
@@ -107,6 +114,7 @@ export class UserApi extends Api {
                         throw(res.error)
                     }
                     localStorage.setItem("token", res.token);
+                    (<any>window).isLoggedIn=true;
                     resolve("Logget inn");
                 })
                 .catch((err: UserInterfaces.loginResponseError) => {
