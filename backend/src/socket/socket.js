@@ -1,6 +1,6 @@
 let socket = require('socket.io');
 
-let chat = require("./chat");
+let chat = require("./chat/chat");
 
 module.exports = (app)=>{
     let io= socket(app);
