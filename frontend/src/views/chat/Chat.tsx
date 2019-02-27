@@ -4,7 +4,7 @@ import {UserApi} from "../../Api";
 import {RouteComponentProps} from 'react-router-dom';
 import ChatMessage from "./ChatMessage";
 import ChatInput from "./ChatInput"
-import io from "socket.io-client";
+import socket from "./../../socket"
 
 interface State {
     messages: message[],
@@ -38,11 +38,6 @@ export default class Chat extends React.Component<Props, State> {
     }
 
     componentDidMount(): void {
-        let socket = io('ws://localhost:80', {
-                path: '/socket/socket.io', transports: ['websocket'],
-            },
-        );
-
         socket.emit("connect", JSON.stringify(
             {"chatID": this.props.match.params.id, "token": UserApi.getUserToken()
             }));
