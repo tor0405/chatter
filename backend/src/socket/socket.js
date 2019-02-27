@@ -12,7 +12,7 @@ module.exports = (app)=>{
         socket.on("login", (token)=>{
             jwt.verify(token, "Password123", {}, (err, decoded)=>{
                 io.emit("login-event", "true");
-                chat(socket, decoded);
+                chat(socket, decoded, io);
             });
 
         });
