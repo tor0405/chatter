@@ -6,7 +6,7 @@
       io.emit("message", JSON.stringify({"msg":msg, "msgId":Math.floor(Math.random()*100), "senderId":"123", "name":"Tor", "date":Date.now()}))
   });*/
 
-import
+
 
 
 module.exports = (io)=>{

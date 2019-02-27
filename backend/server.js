@@ -5,7 +5,7 @@ const express = require('express');
 // Constants
 const PORT = process.env.BACKEND_PORT||8000;
 const HOST = '0.0.0.0';
-let User = require('./src/api/models/userModel');
+let User = require('./src/models/userModel');
 const mongoose = require('mongoose');
 let routes=require("./src/api/routes");
 var bodyParser = require('body-parser');
