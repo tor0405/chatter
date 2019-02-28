@@ -6,7 +6,7 @@ WORKDIR /srv/app/frontend
 
 COPY package.json /srv/app/frontend/
 
-RUN yarn
+RUN yarn --network-timeout 100000
 COPY . /srv/app/frontend
 RUN yarn build
 
