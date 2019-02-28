@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6228d6c8-4026-4b30-907a-dfb788c9404d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/drone.yml" beforeDir="false" afterPath="$PROJECT_DIR$/drone.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.drone.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.drone.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -40,8 +41,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/drone.yml">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/.drone.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -154,7 +159,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/frontend/src/index.js" />
         <option value="$PROJECT_DIR$/frontend/src/Api.js" />
         <option value="$PROJECT_DIR$/backend/db.js" />
         <option value="$PROJECT_DIR$/frontend/src/domain/User.ts" />
@@ -205,6 +209,7 @@
         <option value="$PROJECT_DIR$/frontend/docker-compose.yml" />
         <option value="$PROJECT_DIR$/frontend/src/views/landing/Landing.tsx" />
         <option value="$PROJECT_DIR$/drone.yml" />
+        <option value="$PROJECT_DIR$/.drone.yml" />
       </list>
     </option>
   </component>
@@ -351,28 +356,7 @@
       <workItem from="1551185989405" duration="4108000" />
       <workItem from="1551197240568" duration="5959000" />
       <workItem from="1551347423983" duration="4525000" />
-      <workItem from="1551356847923" duration="3457000" />
-    </task>
-    <task id="LOCAL-00013" summary="Added interfaces &amp; API calls for User login, fetch+registration">
-      <created>1551016515839</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1551016515839</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Created and styled chat component">
-      <created>1551023033152</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1551023033152</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Created and styled chat component">
-      <created>1551023165768</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1551023165768</updated>
+      <workItem from="1551356847923" duration="3689000" />
     </task>
     <task id="LOCAL-00016" summary="Fixed some padding">
       <created>1551088920226</created>
@@ -696,11 +680,32 @@
       <option name="project" value="LOCAL" />
       <updated>1551362572217</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="added dronefile">
+      <created>1551362810626</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1551362810626</updated>
+    </task>
+    <task id="LOCAL-00063" summary="added dronefile">
+      <created>1551362854319</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1551362854319</updated>
+    </task>
+    <task id="LOCAL-00064" summary="added dronefile">
+      <created>1551362946179</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1551362946179</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102003000" />
+    <option name="totallyTimeSpent" value="102235000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="960" y="23" width="960" height="1089" extended-state="0" />
@@ -1124,8 +1129,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/drone.yml">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/.drone.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
