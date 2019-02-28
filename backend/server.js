@@ -43,6 +43,7 @@ let router = express.Router();
 app.use(bodyParser.json());
 
 // Routes
+
 app.use("/api", routes);
 
 http.listen(PORT, HOST);
