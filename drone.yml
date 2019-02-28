@@ -1,12 +1,9 @@
-kind: pipeline
-
-steps:
-  - name: build
-    image: docker/docker-compose
+pipeline:
+  build:
+    image: node:latest
     commands:
-      - docker-compose up
-
+      - npm install
+      - npm run test
 trigger:
   branch:
     - master
-    -
