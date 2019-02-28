@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6228d6c8-4026-4b30-907a-dfb788c9404d" name="Default Changelist" comment="fixed port issue">
+    <list default="true" id="6228d6c8-4026-4b30-907a-dfb788c9404d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="44" column="9" lean-forward="true" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
+            <state relative-caret-position="516">
+              <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
             </state>
           </provider>
         </entry>
@@ -180,7 +181,6 @@
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/backend/Dockerfile" />
         <option value="$PROJECT_DIR$/backend/src/api/routes/userRoutes.js" />
-        <option value="$PROJECT_DIR$/backend/server.js" />
         <option value="$PROJECT_DIR$/frontend/src/views/chat/Chat.tsx" />
         <option value="$PROJECT_DIR$/frontend/src/setupProxy.js" />
         <option value="$PROJECT_DIR$/frontend/.dockerignore" />
@@ -200,6 +200,7 @@
         <option value="$PROJECT_DIR$/frontend/src/socket.ts" />
         <option value="$PROJECT_DIR$/kube-manifest.yaml" />
         <option value="$PROJECT_DIR$/kube-manifest.yml" />
+        <option value="$PROJECT_DIR$/backend/server.js" />
       </list>
     </option>
   </component>
@@ -344,7 +345,7 @@
       <workItem from="1551163869581" duration="308000" />
       <workItem from="1551185989405" duration="4108000" />
       <workItem from="1551197240568" duration="5959000" />
-      <workItem from="1551347423983" duration="2264000" />
+      <workItem from="1551347423983" duration="2970000" />
     </task>
     <task id="LOCAL-00001" summary="Create-react-app &amp; node">
       <created>1550488926042</created>
@@ -647,11 +648,32 @@
       <option name="project" value="LOCAL" />
       <updated>1551310235096</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="fixed port issue">
+      <created>1551353105882</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1551353105882</updated>
+    </task>
+    <task id="LOCAL-00045" summary="fixed port issue">
+      <created>1551353188922</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1551353188922</updated>
+    </task>
+    <task id="LOCAL-00046" summary="fixed port issue">
+      <created>1551353531224</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1551353531224</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96285000" />
+    <option name="totallyTimeSpent" value="96991000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1089" extended-state="6" />
@@ -1082,8 +1104,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="44" column="9" lean-forward="true" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
+        <state relative-caret-position="516">
+          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
         </state>
       </provider>
     </entry>
