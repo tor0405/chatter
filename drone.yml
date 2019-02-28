@@ -1,0 +1,11 @@
+kind: pipeline
+
+steps:
+  - name: build
+    image: docker/docker-compose
+    commands:
+      - docker-compose up
+
+trigger:
+  branch:
+    - master
