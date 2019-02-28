@@ -43,8 +43,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.drone.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+            <state relative-caret-position="60">
+              <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -356,21 +356,7 @@
       <workItem from="1551185989405" duration="4108000" />
       <workItem from="1551197240568" duration="5959000" />
       <workItem from="1551347423983" duration="4525000" />
-      <workItem from="1551356847923" duration="4054000" />
-    </task>
-    <task id="LOCAL-00018" summary="further restyling">
-      <created>1551091488188</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1551091488188</updated>
-    </task>
-    <task id="LOCAL-00019" summary="even more styling">
-      <created>1551091706323</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1551091706323</updated>
+      <workItem from="1551356847923" duration="4110000" />
     </task>
     <task id="LOCAL-00020" summary="Separated Message out from chat, created chatApi, and added chat-id routing functionality">
       <created>1551094596001</created>
@@ -701,11 +687,25 @@
       <option name="project" value="LOCAL" />
       <updated>1551363234038</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="added dronefile">
+      <created>1551363407629</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1551363407629</updated>
+    </task>
+    <task id="LOCAL-00068" summary="added dronefile">
+      <created>1551363423511</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1551363423511</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102600000" />
+    <option name="totallyTimeSpent" value="102656000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="960" y="23" width="960" height="1089" extended-state="0" />
@@ -1131,8 +1131,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.drone.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        <state relative-caret-position="60">
+          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
         </state>
       </provider>
     </entry>
