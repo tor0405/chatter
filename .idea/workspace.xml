@@ -43,8 +43,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.drone.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="30">
+              <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -356,21 +356,7 @@
       <workItem from="1551185989405" duration="4108000" />
       <workItem from="1551197240568" duration="5959000" />
       <workItem from="1551347423983" duration="4525000" />
-      <workItem from="1551356847923" duration="3689000" />
-    </task>
-    <task id="LOCAL-00016" summary="Fixed some padding">
-      <created>1551088920226</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1551088920226</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Restyling and added a logo">
-      <created>1551091239212</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1551091239212</updated>
+      <workItem from="1551356847923" duration="4054000" />
     </task>
     <task id="LOCAL-00018" summary="further restyling">
       <created>1551091488188</created>
@@ -701,11 +687,25 @@
       <option name="project" value="LOCAL" />
       <updated>1551362946179</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="added dronefile">
+      <created>1551363042723</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1551363042723</updated>
+    </task>
+    <task id="LOCAL-00066" summary="added dronefile">
+      <created>1551363234038</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1551363234038</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102235000" />
+    <option name="totallyTimeSpent" value="102600000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="960" y="23" width="960" height="1089" extended-state="0" />
@@ -1131,8 +1131,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.drone.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="30">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
         </state>
       </provider>
     </entry>
