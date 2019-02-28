@@ -6,7 +6,7 @@ WORKDIR /srv/app/backend
 
 COPY package.json /srv/app/backend
 
-RUN npm install
+RUN npm install --network-timeout 100000
 
 COPY . /srv/app/backend
 
