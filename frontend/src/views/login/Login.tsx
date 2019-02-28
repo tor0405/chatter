@@ -32,7 +32,7 @@ export class Login extends React.Component<Props, State> {
     public render() {
         return (
             <div className="login__container">
-                <h1 className="login__header">Logg deg inn</h1>
+                <h1 className="login__header">Logg deg inn!</h1>
                 <form className="login__form">
                     <section className="login__input-section">
                     <input type="text" placeholder="Skriv brukernavn"
