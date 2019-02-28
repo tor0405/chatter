@@ -1,6 +1,6 @@
 pipeline:
   build:
-    image: docker
+    image: docker:compose
     commands:
       - docker-compose up -d --build
 trigger:
