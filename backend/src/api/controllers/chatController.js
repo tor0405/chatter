@@ -34,7 +34,7 @@ exports.get = function (req, res) {
 
 exports.put = function (req, res) {
     let token=jwt.decode(req.get("Authorization").split(" ")[1]);
-    Chat.findOneAndUpdate({public_id:req.params.id, participants:{_id:token.id,admin:true}}, {$set:{...req.body.data}},(err, data)=>{
+    Chat.findOneAndUpdate({public_id:req.params.id, participants:{_id:token.id,admin:true}}, {$set:{...req.body}},(err, data)=>{
         if (err) {
             res.json({'error': err});
         } else {
