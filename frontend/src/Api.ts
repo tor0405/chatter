@@ -158,6 +158,18 @@ export class UserApi extends Api {
 
 export class ChatApi extends Api{
 
+    static updateRoom(roomId:string, data:ChatInterfaces.roomUpdateData):Promise<ChatInterfaces.updateRoomSucess>{
+        return new Promise(((resolve, reject) => {
+            Api.put("/chat/"+roomId, true, {data})
+                .then((response) => (response.json()))
+                .then((res: ChatInterfaces.updateRoomSucess) => {
+                    resolve(res);
+                })
+                .catch((err: ChatInterfaces.getChatError) => {
+                    reject(err.msg);
+                })
+        }));
+    }
 
     static getUserChats():Promise<ChatInterfaces.getUserChatsSuccess>{
         return new Promise(((resolve, reject) => {

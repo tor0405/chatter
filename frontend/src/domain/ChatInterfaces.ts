@@ -52,3 +52,13 @@ export interface sendMessageSuccess{
 export interface sendMessageError{
     msg:string
 }
+
+
+//update Room
+export interface roomUpdateData{
+    open?:boolean;
+}
+
+export interface updateRoomSucess{
+    success:boolean
+}
