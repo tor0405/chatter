@@ -1,11 +1,38 @@
 
+@import "~sass-burger/burger";
+@import "./../common";
 
 .header{
   height:60px;
   width:100%;
-  box-shadsow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
   background-color: #621edd;
   margin-bottom:15px;
+}
+
+
+.menu-button {
+  display: inline-block;
+  padding: .5em;
+  color:white;
+}
+
+.burger-icon {
+  @include burger(25px, 3px, 5px, white);
+}
+
+.menu-button.is-active .burger-icon  {
+  @include burger-to-cross;
+}
+
+
+.header__mobile-menu{
+  background-color: transparent;
+  color:black;
+  margin: auto 10px auto auto;
+  display: none;
+
+  @include respond-to(phone) {display: block; }
 }
 
 .header__nav{
@@ -27,7 +54,36 @@
   flex-direction: row;
   align-items:center;
   margin: auto 0 auto auto;
+  transition: opacity 1s ease-out;
+  @include respond-to(phone) { flex-direction: column; display: none; opacity: 0; }
 }
+.header__right--active{
+  display: block;
+  position: absolute;
+  opacity: 1;
+  -webkit-transition: opacity 1s ease ;
+  left:0;right:0;top:60px;
+  background-color: $secondary;
+  transition-duration: 2s;
+}
+.header__right--active .nav__link{
+  font-size:1.1em;
+  border-radius: 5px;
+  outline: none;
+  margin: 0 auto;
+  height:3em;
+  font-weight: 100;
+  text-align: center;
+  letter-spacing: 1.2px;
+  color:white;
+  border:none;
+  background-color: transparent;
+  border-bottom: none;
+  text-decoration: none;
+  width:6em;
+
+}
+
 
 
 .link__button {

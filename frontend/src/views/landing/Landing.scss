@@ -1,9 +1,15 @@
+@import "./../../common";
+
 
 .landing__container {
   margin:0 auto;
   color:black;
   width:100vw;
   text-align: center;
+
+  @include respond-to(phone) {
+    width: 100% ;
+  }
 }
 
 .landing__intro-container{
