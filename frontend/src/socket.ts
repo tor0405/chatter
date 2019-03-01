@@ -1,6 +1,6 @@
 import io from "socket.io-client";
 
-let socket = io('ws://localhost/', { //TODO: setup env
+let socket = io('ws://localhost:3000/', { //TODO: setup env
         path: '/socket/socket.io', transports: ['websocket'],
     },
 );
@@ -24,7 +24,7 @@ export default {
             socket.on("chat-info", callback);
         },
         onMessage(callback:Function){
-            socket.on("chat-message", callback);
+            socket.on("chat-reply", callback);
         },
         onChatSetup(callback:Function){
             socket.on("chat-setup", callback);

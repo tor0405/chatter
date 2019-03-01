@@ -27,6 +27,13 @@ const options = {
     bufferMaxEntries: 0
 };
 
+
+if(process.env.dev){
+    Chat.remove({}, function(err) {
+        console.log('collection removed')
+    });
+}
+
 const connectWithRetry = () => {
     mongoose.connect(process.env.MONGO_URL, options).then(()=>{
         console.log('MongoDB is connected')
