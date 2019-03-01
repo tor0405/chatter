@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6228d6c8-4026-4b30-907a-dfb788c9404d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/chatModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/chatModel.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/socket/chat/chat.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/socket/chat/chat.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/socket/chat/chatSocketController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/socket/chat/chatSocketController.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/socket.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/socket.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/dashboard/ChatList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/ChatList.tsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,15 +18,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/src/models/userModel.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/src/models/chatModel.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="2" lean-forward="true" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+            <state relative-caret-position="240">
+              <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -56,11 +47,20 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/src/socket.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="278">
+              <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/src/socket/chat/chat.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+            <state relative-caret-position="370">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
@@ -139,6 +139,7 @@
       <find>localhost</find>
       <find>chatr</find>
       <find>Chatro</find>
+      <find>chat-message</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -202,12 +203,12 @@
         <option value="$PROJECT_DIR$/frontend/README.md" />
         <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/deploy.sh" />
-        <option value="$PROJECT_DIR$/frontend/src/socket.ts" />
         <option value="$PROJECT_DIR$/frontend/src/views/dashboard/ChatList.tsx" />
         <option value="$PROJECT_DIR$/backend/server.js" />
-        <option value="$PROJECT_DIR$/backend/src/socket/chat/chat.ts" />
         <option value="$PROJECT_DIR$/backend/src/socket/chat/chatSocketController.ts" />
         <option value="$PROJECT_DIR$/backend/src/models/chatModel.ts" />
+        <option value="$PROJECT_DIR$/backend/src/socket/chat/chat.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/socket.ts" />
       </list>
     </option>
   </component>
@@ -423,14 +424,7 @@
       <workItem from="1551347423983" duration="4525000" />
       <workItem from="1551356847923" duration="6585000" />
       <workItem from="1551367180223" duration="373000" />
-      <workItem from="1551445356457" duration="2000000" />
-    </task>
-    <task id="LOCAL-00024" summary="added state and props">
-      <created>1551108000766</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1551108000766</updated>
+      <workItem from="1551445356457" duration="2094000" />
     </task>
     <task id="LOCAL-00025" summary="added state to ChatInput">
       <created>1551108786452</created>
@@ -768,11 +762,18 @@
       <option name="project" value="LOCAL" />
       <updated>1551365728525</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="Fixed chatrooms duplicating">
+      <created>1551447417584</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1551447417585</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107504000" />
+    <option name="totallyTimeSpent" value="107598000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="960" height="1086" extended-state="0" />
@@ -828,7 +829,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added socket-basis" />
     <MESSAGE value="Split ChatInput out of Chat component" />
     <MESSAGE value="added state and props" />
     <MESSAGE value="added state to ChatInput" />
@@ -853,7 +853,8 @@
     <MESSAGE value="testing jenkins" />
     <MESSAGE value="Jenkins fix" />
     <MESSAGE value="added dronefile" />
-    <option name="LAST_COMMIT_MESSAGE" value="added dronefile" />
+    <MESSAGE value="Fixed chatrooms duplicating" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed chatrooms duplicating" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/frontend/build/index.html">
@@ -1114,13 +1115,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/socket.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="25" lean-forward="true" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/src/models/userModel.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1172,13 +1166,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/socket/chat/chat.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/src/socket/chat/chatSocketController.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="191">
@@ -1188,8 +1175,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/src/models/chatModel.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="2" lean-forward="true" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+        <state relative-caret-position="240">
+          <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/socket/chat/chat.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/socket.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
         </state>
       </provider>
     </entry>

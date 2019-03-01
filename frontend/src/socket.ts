@@ -24,7 +24,7 @@ export default {
             socket.on("chat-info", callback);
         },
         onMessage(callback:Function){
-            socket.on("chat-message", callback);
+            socket.on("chat-reply", callback);
         },
         onChatSetup(callback:Function){
             socket.on("chat-setup", callback);

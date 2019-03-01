@@ -31,7 +31,7 @@ module.exports = (io:any, decoded:any, io_root:any)=>{
                         senderName:decoded.fullName
                     };
                     chatSocketController.sendMessage(chatId,msg,(text:any)=>{
-                        io_root.in('/'+chatId).emit("chat-message", JSON.stringify(msg))
+                        io_root.in('/'+chatId).emit("chat-reply", JSON.stringify(msg))
                     })
                 })
             }
