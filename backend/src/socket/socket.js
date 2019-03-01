@@ -11,8 +11,12 @@ module.exports = (app)=>{
         console.log("New client connected");
         socket.on("login", (token)=>{
             jwt.verify(token, "Password123", {}, (err, decoded)=>{
-                io.emit("login-event", "true");
-                chat(socket, decoded, io);
+                if(err){
+                    io.emit("login-event", "false");
+                }else{
+                    io.emit("login-event", "true");
+                    chat(socket, decoded, io);
+                }
             });
 
         });

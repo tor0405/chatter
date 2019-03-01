@@ -28,10 +28,10 @@ const options = {
 };
 
 
-if(process.env.dev){
-    Chat.remove({}, function(err) {
+if(process.env.DEV){
+   /* Chat.remove({}, function(err) {
         console.log('collection removed')
-    });
+    });*/
 }
 
 const connectWithRetry = () => {

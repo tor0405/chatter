@@ -35,7 +35,6 @@ function getChat(chatId:string,token:any, callback:Function){
         if(err){
             callback({error:err})
         }else{
-            console.log(chatId, res)
             if(res==null){
                 createChat(token.id,chatId, (msg:any)=>{
                     if(msg.err){
@@ -45,7 +44,8 @@ function getChat(chatId:string,token:any, callback:Function){
                     }
                 })
             }else{
-                Chat.findOne({public_id:chatId,participants:{_id:token.id}}, (err:any, data:any)=>{
+
+                Chat.findOne({public_id:chatId,'participants._id':token.id}, (err:any, data:any)=>{
                     if(err){
                         callback({error:err})
                     }else{
@@ -67,9 +67,8 @@ function joinChat(chatId:string,token:any, callback:Function){
             callback({error:err})
         }else{
            if(res.open){
-               Chat.findOneAndUpdate({public_id:chatId},{$push:{participants:{_id:token.id}}}, (err:any, doc:any)=>{
+               Chat.findOneAndUpdate({public_id:chatId},{$push:{participants:{_id:token.id, admin:false}}}, (err:any, doc:any)=>{
                    if(err){
-                       console.log(err)
                        callback({error:err})
                    }else{
                        callback({success:true, chat:doc})
@@ -81,7 +80,7 @@ function joinChat(chatId:string,token:any, callback:Function){
 }
 
 function createChat(creatorId:string, public_id:string,callback:Function){
-    let new_chat=new Chat({public_id:public_id,participants:{_id:creatorId}, messages:[], open:true});
+    let new_chat=new Chat({public_id:public_id,participants:{_id:creatorId, admin:true}, messages:[], open:true});
     new_chat.save((err: any, res:any)=>{
         if(err){
             callback({error:err})

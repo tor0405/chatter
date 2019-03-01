@@ -45,7 +45,6 @@ export class ChatList extends React.Component<Props, State> {
 
 
     public render() {
-        console.log(this.state)
         return (
             <div className="chatlist__container">
                 {this.renderChatList()}
