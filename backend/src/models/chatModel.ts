@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt-nodejs');
 let chatModel = new mongoose.Schema(
 		{
-				public_id:String,
+				public_id:{
+					type:String,
+					unique:true
+				},
 				participants: [{_id:String}],
 				messages:[{
 					senderId:String,
@@ -11,7 +14,10 @@ let chatModel = new mongoose.Schema(
 					senderName:String
 				}],
 				invite_only:Boolean,
-				open:Boolean,
+				open:{
+					type:Boolean,
+					required:true
+				},
 				secret:String
 		}
 );

@@ -36,7 +36,7 @@ export class ChatList extends React.Component<Props, State> {
             return this.state.chatList.map(e=>{
                 return(
                     <Link key={e.public_id} to={"/chat/"+e.public_id} className={"chatlist__item"}>
-                        Chatrom: {e.public_id}
+                       {e.public_id}
                     </Link>
                 )
             })

@@ -15,6 +15,7 @@ import chatSocketController from "./chatSocketController";
 module.exports = (io:any, decoded:any, io_root:any)=>{
     io.on("chat-connect", (msg:any)=>{
         chatSocketController.getChat(msg, decoded,(msg:any)=>{
+            console.log(msg)
             if(msg.error){
                 io.emit("chat-error", "Not working..")
             }else{
@@ -23,6 +24,7 @@ module.exports = (io:any, decoded:any, io_root:any)=>{
                 let chatId=msg.chat.public_id;
                 io.join('/'+chatId);
                 io.on("chat-message", (msgIn:any)=>{
+
                     let msg={
                         ...JSON.parse(msgIn),
                         senderId:decoded.id,
