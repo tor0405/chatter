@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "MONGO_URL='mongodb://mongo:27017/db' ts-node server.js",
-    "dev": "MONGO_URL='mongodb://localhost:27017/db' nodemon --watch 'src' -e ts,js --exec 'babel-node & ts-node' server.js & mongod"
+    "dev": "DEV=true MONGO_URL='mongodb://localhost:27017/db' nodemon --watch 'src' -e ts,js --exec 'babel-node & ts-node' server.js & mongod"
   },
   "author": "",
   "license": "ISC",

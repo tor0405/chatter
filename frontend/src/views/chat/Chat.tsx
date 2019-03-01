@@ -1,17 +1,19 @@
 import * as React from 'react';
 import './Chat.scss'
-import {UserApi} from "../../Api";
+import {ChatApi, UserApi} from "../../Api";
 import {RouteComponentProps} from 'react-router-dom';
 import ChatMessage from "./ChatMessage";
 import ChatInput from "./ChatInput"
 import socket from "./../../socket"
-import {User} from "../../domain/UserInterfaces";
+import ChatHeader from "./ChatHeader";
 
 interface State {
     messages: message[],
     socket: SocketIOClient.Socket | null,
     info: {
-        name: string
+        public_id: string,
+        admin: boolean,
+        open: boolean
     }
 }
 
@@ -22,7 +24,7 @@ interface Props extends RouteComponentProps<{ id: string; }> {
 interface message {
     msg: string,
     senderId: string,
-    senderName:string,
+    senderName: string,
     date: string;
     content: string,
 }
@@ -35,15 +37,17 @@ export default class Chat extends React.Component<Props, State> {
             messages: [],
             socket: null,
             info: {
-                name: ""
+                public_id: "",
+                admin: false,
+                open: false
             }
         }
     }
 
     componentDidMount(): void {
         socket.user.login(UserApi.getUserToken());
-        socket.user.onLoginResponse((status:any)=>{
-            if(status=="true"){
+        socket.user.onLoginResponse((status: any) => {
+            if (status == "true") {
                 socket.chat.connect(this.props.match.params.id);
                 socket.chat.onMessage(this.recieveMessage.bind(this));
                 socket.chat.onInfo(this.recieveInfo.bind(this))
@@ -52,11 +56,27 @@ export default class Chat extends React.Component<Props, State> {
         })
     }
 
-    private setupChat(chatInfo:any){
-        let info=JSON.parse(chatInfo);
-        if(info.chat.messages){
+    private setupChat(chatInfo: any) {
+        let info = JSON.parse(chatInfo);
+        let admin = ((chat) => {
+            let userId = UserApi.getUserId();
+            return chat.participants.every((user: any) => {
+                if(user._id===userId){
+                    return user.admin
+                }else{
+                    return true
+                }
+            })
+        })(info.chat);
+        if (info.chat.messages) {
+            console.log(info.chat.open)
             this.setState({
-                messages:info.chat.messages
+                messages: info.chat.messages,
+                info: {
+                    public_id: info.chat.public_id,
+                    admin: admin,
+                    open: info.chat.open
+                }
             });
         }
     }
@@ -67,7 +87,6 @@ export default class Chat extends React.Component<Props, State> {
 
     private recieveMessage(msgIn: string): void {
         let msg = JSON.parse(msgIn);
-        console.log(msg)
         if (!this.state.messages.find(m => m.date == msg.date)) {
             this.setState({
                 messages: [...this.state.messages, msg]
@@ -82,8 +101,21 @@ export default class Chat extends React.Component<Props, State> {
     public renderMessages() {
         return this.state.messages.map(msg => {
             return (
-                <ChatMessage name={msg.senderName} date={msg.date} key={msg.date} text={msg.content} self={msg.senderId == UserApi.getUserId()}/>
+                <ChatMessage name={msg.senderName} date={msg.date} key={msg.date} text={msg.content}
+                             self={msg.senderId == UserApi.getUserId()}/>
             )
+        })
+    }
+
+    switchUpdate(open:boolean){
+        ChatApi.updateRoom(this.state.info.public_id, {open}).then(res=>{
+            console.log("success")
+        })
+        this.setState({
+            info:{
+                ...this.state.info,
+                open:open
+            }
         })
     }
 
@@ -91,9 +123,10 @@ export default class Chat extends React.Component<Props, State> {
     render() {
         return (
             <div className={"chat__container"}>
-                <section className={"chat__header"}>
-                    <span className={"chat__name"}>{this.state.info.name}</span>
-                </section>
+                <ChatHeader admin={this.state.info.admin} open={this.state.info.open}
+                            public_id={this.state.info.public_id}
+                            switchCallback={this.switchUpdate.bind(this)}
+                />
                 <section className={"chat__body"}>
                     <div className={"chat__content"}>
                         {this.renderMessages()}

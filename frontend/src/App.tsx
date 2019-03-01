@@ -24,7 +24,6 @@ interface State {
     }
 
     componentDidUpdate(): void {
-        console.log(this.state.isLoggedIn);
         if(this.state.isLoggedIn!=(window as any).isLoggedIn){
             this.setState({
                 isLoggedIn:(window as any).isLoggedIn

@@ -5,7 +5,7 @@ var jwt = require('jsonwebtoken');
 
 exports.getAll = function (req, res) {
     let token=jwt.decode(req.get("Authorization").split(" ")[1]);
-    Chat.find({participants:{_id:token.id}}, (err, data)=>{
+    Chat.find({"participants._id":token.id}, (err, data)=>{
         if (err) {
             res.json({'error': err});
         } else {

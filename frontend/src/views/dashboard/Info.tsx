@@ -19,7 +19,6 @@ export class Info extends React.Component<Props> {
 
 
     public render() {
-        console.log(this.state)
         return (
             <div className="info__container">
                 <h1>Velkommen til Chatter</h1>
