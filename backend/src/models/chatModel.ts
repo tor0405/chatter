@@ -6,7 +6,7 @@ let chatModel = new mongoose.Schema(
 					type:String,
 					unique:true
 				},
-				participants: [{_id:String}],
+				participants: [{_id:String, admin:Boolean}],
 				messages:[{
 					senderId:String,
 					content:String,

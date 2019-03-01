@@ -81,7 +81,7 @@ function joinChat(chatId:string,token:any, callback:Function){
 }
 
 function createChat(creatorId:string, public_id:string,callback:Function){
-    let new_chat=new Chat({public_id:public_id,participants:{_id:creatorId}, messages:[], open:true});
+    let new_chat=new Chat({public_id:public_id,participants:{_id:creatorId, admin:true}, messages:[], open:true});
     new_chat.save((err: any, res:any)=>{
         if(err){
             callback({error:err})
