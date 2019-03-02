@@ -1,19 +1,19 @@
-.info__container{
+.info__container {
   text-align: center;
   margin: 0 auto;
 }
 
-.info__create{
+.info__create {
 
-  width:10em;
+  width: 10em;
   font-size: 1.2em;
-  padding:1em;
+  padding: 1em;
   border-style: solid;
   -webkit-background-clip: text;
   background-clip: text;
   outline: none;
   background-color: transparent;
-  color:linear-gradient(-45deg, #743ad5 0%, #d53a9d 100%);;
+  color: linear-gradient(-45deg, #743ad5 0%, #d53a9d 100%);;
   margin-top: 10px;
   border-image: linear-gradient(-45deg, #743ad5 0%, #d53a9d 100%);
   border-image-slice: 1;
@@ -22,3 +22,5 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+

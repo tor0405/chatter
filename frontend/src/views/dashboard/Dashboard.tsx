@@ -1,7 +1,5 @@
 import * as React from 'react';
 import './Dashboard.scss'
-import {UserApi} from "../../Api"
-import Chat from "../chat/Chat";
 import {ChatList} from "./ChatList";
 import {Info} from "./Info";
 
@@ -9,14 +7,13 @@ interface State {
 }
 
 interface Props {
-    history:any
+    history: any
 }
 
 export class Dashboard extends React.Component<Props, State> {
-    constructor(props: any) {
+    constructor(props: Props) {
         super(props);
     }
-
 
     public render() {
         return (
@@ -26,11 +23,12 @@ export class Dashboard extends React.Component<Props, State> {
                         <Info {...this.props} />
                     </section>
                     <section className={"dashboard__sidebar"}>
-                        <ChatList />
+                        <ChatList/>
                     </section>
                 </div>
             </div>
         );
     }
+
 
 }

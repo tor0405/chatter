@@ -54,7 +54,6 @@ export default class ChatHeader extends React.Component<Props, State> {
     }
 
     render(){
-        console.error(this.props.open)
         return this.renderHeader()
     }
 };
