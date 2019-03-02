@@ -1,28 +1,41 @@
-.dashboard__container{
-  width:100%;
-  color:black;
+@import "./../../common";
+
+.dashboard__container {
+  width: 100%;
+  color: black;
 }
 
-.dashboard__content{
+.dashboard__content {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
   grid-auto-rows: minmax(100px, auto);
+  @include respond-to(phone) {
+    grid-template-columns: 1fr;
+  }
+
 }
 
-.dashboard__header{
+.dashboard__header {
   text-align: center;
   font-size: 2em;
-  color:black;
+  color: black;
 }
 
-.dashboard__sidebar{
+.dashboard__sidebar {
   grid-column-start: 3;
   grid-column-end: 3;
+  @include respond-to(phone) {
+    grid-column-start: 1;
+    margin-top: 15px;
+    grid-column-end: 1;
+  }
 }
 
-.dashboard__info{
+.dashboard__info {
   grid-column-start: 1;
   grid-column-end: 3;
+  @include respond-to(phone) {
+    grid-template-columns: 1fr;
+  }
 }
 

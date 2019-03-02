@@ -30,7 +30,10 @@ interface message {
 }
 
 //TODO:autoscroll when new msg
+
 export default class Chat extends React.Component<Props, State> {
+    chatBody: HTMLDivElement | null = null;
+
     constructor(props: Props) {
         super(props);
         this.state = {
@@ -53,7 +56,9 @@ export default class Chat extends React.Component<Props, State> {
                 socket.chat.onInfo(this.recieveInfo.bind(this))
                 socket.chat.onChatSetup(this.setupChat.bind(this))
             }
-        })
+        });
+
+
     }
 
     private setupChat(chatInfo: any) {
@@ -61,13 +66,14 @@ export default class Chat extends React.Component<Props, State> {
         let admin = ((chat) => {
             let userId = UserApi.getUserId();
             return chat.participants.every((user: any) => {
-                if(user._id===userId){
+                if (user._id === userId) {
                     return user.admin
-                }else{
+                } else {
                     return true
                 }
             })
         })(info.chat);
+
         if (info.chat.messages) {
             console.log(info.chat.open)
             this.setState({
@@ -79,6 +85,7 @@ export default class Chat extends React.Component<Props, State> {
                 }
             });
         }
+        this.scrollToBottom()
     }
 
     private recieveInfo(infoIn: any) {
@@ -92,6 +99,7 @@ export default class Chat extends React.Component<Props, State> {
                 messages: [...this.state.messages, msg]
             });
         }
+        this.scrollToBottom()
     }
 
     public sendMessage(msg: string) {
@@ -104,18 +112,28 @@ export default class Chat extends React.Component<Props, State> {
                 <ChatMessage name={msg.senderName} date={msg.date} key={msg.date} text={msg.content}
                              self={msg.senderId == UserApi.getUserId()}/>
             )
+
         })
     }
 
-    switchUpdate(open:boolean){
-        ChatApi.updateRoom(this.state.info.public_id, {open}).then(res=>{
+    switchUpdate(open: boolean) {
+        ChatApi.updateRoom(this.state.info.public_id, {open}).then(res => {
         })
         this.setState({
-            info:{
+            info: {
                 ...this.state.info,
-                open:open
+                open: open
             }
         })
+    }
+
+    scrollToBottom() {
+        if (this.chatBody) {
+            this.chatBody.scrollTo({
+                top: this.chatBody.scrollHeight,
+                behavior: "smooth"
+            });
+        }
     }
 
 
@@ -127,7 +145,9 @@ export default class Chat extends React.Component<Props, State> {
                             switchCallback={this.switchUpdate.bind(this)}
                 />
                 <section className={"chat__body"}>
-                    <div className={"chat__content"}>
+                    <div ref={el => {
+                        this.chatBody = el
+                    }} className={"chat__content"}>
                         {this.renderMessages()}
                     </div>
                 </section>

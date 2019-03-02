@@ -2,31 +2,42 @@
 
 
 .landing__container {
-  margin:0 auto;
-  color:black;
-  width:100vw;
+  margin: 0 auto;
+  color: black;
+  width: 100vw;
   text-align: center;
 
   @include respond-to(phone) {
-    width: 100% ;
+    width: 100%;
   }
 }
 
-.landing__intro-container{
+.landing__intro-container {
   height: 100%;
-}
-.landing__intro-header{
-  font-size: 3em;
-  padding-top: 20px;
+  @include respond-to(phone) {
+    padding: 20px;
+  }
 }
 
-.landing__intro-sub{
+.landing__intro-header {
+  font-size: 3em;
+  padding-top: 20px;
+  @include respond-to(phone) {
+    padding-top: 0;
+  }
+}
+
+
+.landing__intro-sub {
   font-size: 1.2em;
   margin-top: -1em;
   margin-bottom: 2.5em;
+  @include respond-to(phone) {
+    margin-bottom: 1em;
+  }
 }
 
-.about__image{
+.about__image {
   margin-top: 30px;
 }
 
