@@ -109,7 +109,6 @@ export default class Chat extends React.Component<Props, State> {
 
     switchUpdate(open:boolean){
         ChatApi.updateRoom(this.state.info.public_id, {open}).then(res=>{
-            console.log("success")
         })
         this.setState({
             info:{

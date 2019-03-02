@@ -23,6 +23,7 @@ interface State {
         }
     }
 
+
     componentDidUpdate(): void {
         if(this.state.isLoggedIn!=(window as any).isLoggedIn){
             this.setState({

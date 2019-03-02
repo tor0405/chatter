@@ -30,7 +30,7 @@ export const Header: React.FunctionComponent<Props> = (props) => {
                 </section>
 
                 <section className={"header__mobile-menu"}>
-                    <span onClick={()=>{setActive(!isActive);console.log(isActive)}} className={"menu-button "+(isActive?"is-active":"")} id="menuButton">
+                    <span onClick={()=>{setActive(!isActive)}} className={"menu-button "+(isActive?"is-active":"")} id="menuButton">
                         <span className="burger-icon"></span>
                     </span>
                 </section>
