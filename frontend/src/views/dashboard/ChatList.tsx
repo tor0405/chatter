@@ -20,7 +20,6 @@ export class ChatList extends React.Component<Props, State> {
         this.state = {
             chatList: []
         }
-
     }
 
 

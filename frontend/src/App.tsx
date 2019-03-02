@@ -1,41 +1,47 @@
 import * as React from 'react';
-import { Header } from './components/Header';
-import {UserApi} from "./Api"
+import {Header} from './components/Header';
+import {RouteComponentProps} from "react-router";
 
 
-interface Props {
-    children:any
+interface OwnProps {
 }
+
 interface State {
-    isLoggedIn:boolean
-}export class App extends React.Component<Props, State> {
-    constructor(props:Props){
+    isLoggedIn: boolean
+}
+
+type Props = OwnProps & RouteComponentProps;
+
+export class App extends React.Component<OwnProps, State> {
+    constructor(props: OwnProps) {
         super(props);
-        this.state={
-            isLoggedIn:false
+        this.state = {
+            isLoggedIn: false
         }
     }
+
+
     componentDidMount(): void {
-        if(this.state.isLoggedIn!=(window as any).isLoggedIn){
+        if (this.state.isLoggedIn != (window as any).isLoggedIn) {
             this.setState({
-                isLoggedIn:(window as any).isLoggedIn
+                isLoggedIn: (window as any).isLoggedIn
             })
         }
     }
 
 
     componentDidUpdate(): void {
-        if(this.state.isLoggedIn!=(window as any).isLoggedIn){
+        if (this.state.isLoggedIn != (window as any).isLoggedIn) {
             this.setState({
-                isLoggedIn:(window as any).isLoggedIn
+                isLoggedIn: (window as any).isLoggedIn
             })
         }
     }
 
-    render(){
+    render() {
         return (
             <div>
-                <Header loggedIn={this.state.isLoggedIn} />
+                <Header {...this.props} loggedIn={this.state.isLoggedIn}/>
                 {this.props.children}
             </div>
 

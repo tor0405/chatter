@@ -1,18 +1,33 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import {useState} from 'react';
+import {Link} from 'react-router-dom';
 import './Header.scss'
 import {UserApi} from "../Api";
-import {useState} from "react";
 
 interface Props {
-    loggedIn:boolean
+    loggedIn: boolean,
+    location?: any
 }
 
+
 export const Header: React.FunctionComponent<Props> = (props) => {
-    const [isActive, setActive] = useState(false);
+
+    const [navbarShown, showNavbar] = useState(false);
+    const [lastLocation, changeLocation] = useState("");
+
+
+    function locationChanged() {
+        if (lastLocation != props.location) {
+            changeLocation(props.location);
+            showNavbar(false)
+        }
+    }
+
+    locationChanged();
+
 
     function loggedIn() {
-        return(
+        return (
             <nav className="header__nav">
                 <section className={"header__left"}>
                     <Link className="nav__link" to={"/"}>
@@ -21,7 +36,7 @@ export const Header: React.FunctionComponent<Props> = (props) => {
                         </button>
                     </Link>
                 </section>
-                <section className={"header__right "+(isActive?" header__right--active":"")}>
+                <section className={"header__right " + (navbarShown ? " header__right--active" : "")}>
                     <Link className="nav__link" onClick={UserApi.logOut} to={"/"}>
                         <button className="link__button">
                             Logg ut
@@ -30,7 +45,12 @@ export const Header: React.FunctionComponent<Props> = (props) => {
                 </section>
 
                 <section className={"header__mobile-menu"}>
-                    <span onClick={()=>{setActive(!isActive)}} className={"menu-button "+(isActive?"is-active":"")} id="menuButton">
+                    <span
+                        onClick={() => {
+                            showNavbar(!navbarShown)
+                        }}
+                        className={"menu-button " + (navbarShown ? "is-active" : "")}
+                        id="menuButton">
                         <span className="burger-icon"></span>
                     </span>
                 </section>
@@ -38,8 +58,8 @@ export const Header: React.FunctionComponent<Props> = (props) => {
         )
     }
 
-    function loggedOut(){
-        return(
+    function loggedOut() {
+        return (
             <nav className="header__nav">
                 <section className={"header__left"}>
                     <Link className="nav__link" to={"/"}>
@@ -48,20 +68,22 @@ export const Header: React.FunctionComponent<Props> = (props) => {
                         </button>
                     </Link>
                 </section>
-                <section className={"header__right "+(isActive?" header__right--active":"")}>
-                <Link className="nav__link" to={"/login"}>
-                    <button className="link__button">
-                        Login
-                    </button>
-                </Link>
-                <Link className="nav__link" to={"/register"}>
-                    <button className="link__button">
-                        Register
-                    </button>
-                </Link>
+                <section className={"header__right " + (navbarShown ? " header__right--active" : "")}>
+                    <Link className="nav__link" to={"/login"}>
+                        <button className="link__button">
+                            Login
+                        </button>
+                    </Link>
+                    <Link className="nav__link" to={"/register"}>
+                        <button className="link__button">
+                            Register
+                        </button>
+                    </Link>
                 </section>
                 <section className={"header__mobile-menu"}>
-                    <span onClick={()=>{setActive(!isActive);console.log(isActive)}} className={"menu-button "+(isActive?"is-active":"")} id="menuButton">
+                    <span onClick={() => {
+                        showNavbar(!navbarShown);
+                    }} className={"menu-button " + (navbarShown ? "is-active" : "")} id="menuButton">
                         <span className="burger-icon"></span>
                     </span>
                 </section>
@@ -71,7 +93,7 @@ export const Header: React.FunctionComponent<Props> = (props) => {
 
     return (
         <div className="header">
-            {props.loggedIn?loggedIn():loggedOut()}
+            {props.loggedIn ? loggedIn() : loggedOut()}
         </div>
     );
 };
