@@ -23,6 +23,9 @@ export default {
     onInfo(callback: Function) {
       socket.on("chat-info", callback);
     },
+    onError(callback: Function) {
+      socket.on("chat-error", callback);
+    },
     onMessage(callback: Function) {
       socket.on("chat-reply", callback);
     },
