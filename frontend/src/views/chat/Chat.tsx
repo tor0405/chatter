@@ -85,7 +85,7 @@ export default class Chat extends React.Component<Props, State> {
         }
       });
     }
-    this.scrollToBottom();
+    this.scrollToBottom("auto");
   }
 
   private recieveInfo(infoIn: any) {
@@ -99,7 +99,7 @@ export default class Chat extends React.Component<Props, State> {
         messages: [...this.state.messages, msg]
       });
     }
-    this.scrollToBottom();
+    this.scrollToBottom("smooth");
   }
 
   public sendMessage(msg: string) {
@@ -127,11 +127,11 @@ export default class Chat extends React.Component<Props, State> {
     });
   }
 
-  scrollToBottom() {
+  scrollToBottom(behavior: ScrollOptions["behavior"]) {
     if (this.chatBody) {
       this.chatBody.scrollTo({
         top: this.chatBody.scrollHeight,
-        behavior: "smooth"
+        behavior: behavior
       });
     }
   }
