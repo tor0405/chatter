@@ -17,3 +17,8 @@ after_success:
 before_install:
   - openssl aes-256-cbc -K $encrypted_73d4c2b5bdee_key -iv $encrypted_73d4c2b5bdee_iv
     -in deploy_key.enc -out ./deploy_key -d
+  - eval "$(ssh-agent -s)"
+  - chmod 600 ./deploy_key
+  - echo -e "Host 192.241.129.61\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+  - ssh-add ./deploy_key
+  - ssh -i ./deploy_key root@192.241.129.61 pwd
