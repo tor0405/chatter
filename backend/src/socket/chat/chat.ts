@@ -12,7 +12,6 @@ module.exports = (socket: any, decoded: any, io: any) => {
         io.sockets.in(socket.id).emit("chat-error", msg.error);
       } else {
         io.sockets.in(socket.id).emit("chat-info", "connected");
-        console.log(socket.id);
         io.sockets.in(socket.id).emit("chat-setup", JSON.stringify({ chat: msg.chat }));
         let chatId = msg.chat.public_id;
         socket.on("chat-message", (msgIn: any) => {

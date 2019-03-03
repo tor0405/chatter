@@ -6,9 +6,6 @@ let jwt = require("jsonwebtoken");
 module.exports = (app) => {
   let io = socket(app);
   io.on("connect", socket => {
-    console.log("\n\n\n---------------\n");
-    console.log("hallo");
-    console.log("New client connected");
     socket.on("login", (token) => {
       socket.join(socket.id);
       jwt.verify(token, "Password123", {}, (err, decoded) => { //TODO: env!

@@ -77,7 +77,6 @@ export default class Chat extends React.Component<Props, State> {
     })(info.chat);
 
     if (info.chat.messages) {
-      console.log(info.chat.open);
       this.setState({
         messages: info.chat.messages,
         info: {
