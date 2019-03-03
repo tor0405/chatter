@@ -3,6 +3,6 @@ set -x
 
 cd ~/chatter/
 git pull
-
-docker-compose down
-docker-compose up --build
+touch .t
+sudo docker-compose down
+sudo docker-compose up --build
