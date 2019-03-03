@@ -7,7 +7,7 @@ notifications:
     onsuccess: change
 addons:
   sshknownhosts:
-    - 192.241.129.61
+    - SERVER_IP
 branches:
   only:
     - master
@@ -15,7 +15,7 @@ env:
   global:
     - REMOTEAPPDIR=/var/www/MYDOMAIN.COM/
     - REMOTEUSER=deploy
-    - REMOTEHOST=192.241.129.61
+    - REMOTEHOST=SERVER_IP
     - PORT=8080
 beforeinstall:
   - npm install -g npm@^2
