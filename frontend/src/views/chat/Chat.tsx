@@ -6,6 +6,7 @@ import ChatMessage from "./ChatMessage/ChatMessage";
 import ChatInput from "./ChatInput/ChatInput";
 import socket from "./../../socket";
 import ChatHeader from "./ChatHeader/ChatHeader";
+import { toast } from "react-toastify";
 
 interface State {
   messages: message[],
@@ -118,6 +119,7 @@ export default class Chat extends React.Component<Props, State> {
 
   switchUpdate(open: boolean) {
     ChatApi.updateRoom(this.state.info.public_id, { open }).then(res => {
+      toast("Rominnstillinger oppdatert", { autoClose: 2000 });
     });
     this.setState({
       info: {
