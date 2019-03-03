@@ -10,6 +10,9 @@ env:
     - REMOTEUSER=deploy
     - REMOTEHOST=192.241.129.61
     - PORT=8080
+
+install:
+  - cd frontend && npm install
 script:
   - cd frontend && npm test
 after_success:
