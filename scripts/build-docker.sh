@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 set -x
 
-touch test
+touch testTor
 cd ~/chatter/
 git pull
 touch test2
