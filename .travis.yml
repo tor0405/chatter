@@ -21,4 +21,4 @@ before_install:
   - chmod 600 ./deploy_key
   - echo -e "Host 192.241.129.61\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - ssh-add ./deploy_key
-  - ssh -i ./deploy_key root@192.241.129.61 pwd
+  - ssh -i ./deploy_key deploy@192.241.129.61 pwd
