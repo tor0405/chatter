@@ -14,6 +14,7 @@ module.exports = (socket: any, decoded: any, io: any) => {
         io.sockets.in(socket.id).emit("chat-info", "connected");
         io.sockets.in(socket.id).emit("chat-setup", JSON.stringify({ chat: msg.chat }));
         let chatId = msg.chat.public_id;
+        socket.join(chatId);
         socket.on("chat-message", (msgIn: any) => {
           let msg = {
             ...JSON.parse(msgIn),
@@ -21,7 +22,7 @@ module.exports = (socket: any, decoded: any, io: any) => {
             senderName: decoded.fullName
           };
           chatSocketController.sendMessage(chatId, msg, (text: any) => {
-            io.sockets.in(socket.id).emit("chat-reply", JSON.stringify(msg));
+            io.sockets.in(chatId).emit("chat-reply", JSON.stringify(msg));
           });
         });
       }

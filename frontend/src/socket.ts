@@ -1,7 +1,7 @@
 import io from "socket.io-client";
 
 let socket = io("/", { //TODO: setup env
-    path: "/socket/socket.io", transports: ["polling"]
+    path: "/socket/socket.io"
 
   }
 );
