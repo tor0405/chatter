@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 set -x
 
-ssh $REMOTE_USER@$REMOTE_HOST 'bash -s' < ./scripts/build-docker.sh
+ssh deploy@192.241.129.61 'bash -s' < ./scripts/build-docker.sh
