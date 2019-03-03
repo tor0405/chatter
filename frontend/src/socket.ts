@@ -1,7 +1,8 @@
 import io from "socket.io-client";
 
 let socket = io("/", { //TODO: setup env
-    path: "/socket/socket.io", transports: ["websocket"]
+    path: "/socket/socket.io"
+
   }
 );
 socket.connect();
