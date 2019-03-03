@@ -1,38 +1,31 @@
 language: nodeCreate public and private SSH keysjs
 nodejs:
-- 6.9.1
+  - 6.9.1
 notifications:
   email:
     onfailure: change
     onsuccess: change
 addons:
   sshknownhosts:
-  - 192.241.129.61
+    - 192.241.129.61
 branches:
   only:
-  - master
+    - master
 env:
   global:
-  - REMOTEAPPDIR=/var/www/
-  - REMOTEUSER=deploy
-  - REMOTEHOST=192.241.129.61
-  - PORT=8080
+    - REMOTEAPPDIR=/var/www/
+    - REMOTEUSER=deploy
+    - REMOTEHOST=192.241.129.61
+    - PORT=8080
 beforeinstall:
-- npm install -g npm@^2
+  - npm install -g npm@^2
 install:
-- npm install --only=dev
+  - npm install --only=dev
 beforescript:
-- chmod 600 deploy && mv deploy ~/.ssh/idrsa
+  - chmod 600 deploy && mv deploy ~/.ssh/idrsa
 script:
-- npm run build
+  - npm run build
 after_success:
-- "./scripts/deploy.sh"
+  - "./scripts/deploy.sh"
 before_install:
-- openssl aes-256-cbc -K $encrypted_73d4c2b5bdee_key -iv $encrypted_73d4c2b5bdee_iv
-  -in deploy_key.enc -out ./deploy_key -d
-- ssh-add ./deploy_key
-- eval "$(ssh-agent -s)"
-- chmod 600 ./deploy_key
-- echo -e "Host $REMOTEHOST\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-- ssh-add ./deploy_key
-- ssh -i ./deploy_key deploy@192.241.129.61 pwd
+  - openssl aes-256-cbc -K $encrypted_73d4c2b5bdee_key -iv $encrypted_73d4c2b5bdee_iv
