@@ -1,7 +1,10 @@
-
 deploy:
 provider: script
 skip_cleanup: true
-script: ./deploy.sh
-on:
+script: "./deploy.sh"
+true:
   branch: master
+
+before_install:
+  - openssl aes-256-cbc -K $encrypted_73d4c2b5bdee_key -iv $encrypted_73d4c2b5bdee_iv
+    -in deploy.enc -out deploy -d

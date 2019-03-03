@@ -1,19 +1,17 @@
-
-
 let socket = require('socket.io');
 
 let chat = require("./chat/chat.ts");
-let jwt =  require("jsonwebtoken");
+let jwt = require("jsonwebtoken");
 
-module.exports = (app)=>{
-    let io= socket(app);
+module.exports = (app) => {
+    let io = socket(app);
     io.on("connection", socket => {
         console.log("New client connected");
-        socket.on("login", (token)=>{
-            jwt.verify(token, "Password123", {}, (err, decoded)=>{
-                if(err){
+        socket.on("login", (token) => {
+            jwt.verify(token, "Password123", {}, (err, decoded) => { //TODO: env!
+                if (err) {
                     io.emit("login-event", "false");
-                }else{
+                } else {
                     io.emit("login-event", "true");
                     chat(socket, decoded, io);
                 }
@@ -21,7 +19,6 @@ module.exports = (app)=>{
 
         });
     });
-
 
 
 };
