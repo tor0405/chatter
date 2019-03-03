@@ -11,7 +11,7 @@ env:
     - REMOTEHOST=192.241.129.61
     - PORT=8080
 script:
-  - echo(1)
+  - cd frontend && npm test
 after_success:
   - "./scripts/deploy.sh"
 before_install:
