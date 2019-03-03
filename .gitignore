@@ -98,3 +98,4 @@ fabric.properties
 # End of https://www.gitignore.io/api/webstorm
 deploy
 deploy
+deploy_key
