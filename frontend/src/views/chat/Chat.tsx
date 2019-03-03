@@ -6,6 +6,7 @@ import ChatMessage from "./ChatMessage/ChatMessage";
 import ChatInput from "./ChatInput/ChatInput";
 import socket from "./../../socket";
 import ChatHeader from "./ChatHeader/ChatHeader";
+import { toast } from "react-toastify";
 
 interface State {
   messages: message[],
@@ -18,7 +19,7 @@ interface State {
 }
 
 interface Props extends RouteComponentProps<{ id: string; }> {
-
+  history: any,
 }
 
 interface message {
@@ -54,6 +55,7 @@ export default class Chat extends React.Component<Props, State> {
         socket.chat.connect(this.props.match.params.id);
         socket.chat.onMessage(this.recieveMessage.bind(this));
         socket.chat.onInfo(this.recieveInfo.bind(this));
+        socket.chat.onError(this.recieveError.bind(this));
         socket.chat.onChatSetup(this.setupChat.bind(this));
       }
     });
@@ -92,6 +94,13 @@ export default class Chat extends React.Component<Props, State> {
 
   }
 
+  private recieveError(errorIn: String) {
+    if (errorIn == "LOCKED") {
+      toast.error("Rommet er låst", { autoClose: 2000 });
+    }
+    this.props.history.push("/");
+  }
+
   private recieveMessage(msgIn: string): void {
     let msg = JSON.parse(msgIn);
     if (!this.state.messages.find(m => m.date == msg.date)) {
@@ -118,6 +127,7 @@ export default class Chat extends React.Component<Props, State> {
 
   switchUpdate(open: boolean) {
     ChatApi.updateRoom(this.state.info.public_id, { open }).then(res => {
+      toast("Rominnstillinger oppdatert", { autoClose: 2000 });
     });
     this.setState({
       info: {
