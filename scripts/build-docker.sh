@@ -1,9 +1,9 @@
 #!/usr/bin/env sh
 set -x
 
-touch testTor
 cd ~/chatter/
+
 git pull
-touch test2
+
 sudo docker-compose down
-sudo docker-compose up --build
+sudo docker-compose up -d
