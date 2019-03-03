@@ -11,9 +11,8 @@ env:
     - REMOTEHOST=192.241.129.61
     - PORT=8080
 script:
-  - ls
-after_success:
   - "./scripts/deploy.sh"
+
 before_install:
   - openssl aes-256-cbc -K $encrypted_73d4c2b5bdee_key -iv $encrypted_73d4c2b5bdee_iv
     -in deploy_key.enc -out ./deploy_key -d
